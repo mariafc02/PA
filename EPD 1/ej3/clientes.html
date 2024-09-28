@@ -1,18 +1,19 @@
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="./media/css/global.css">
         <title>Clientes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
+        <!--<style>
             body {
                 font-family: "Verdana", sans-serif;
                 margin: 0;
                 padding: 0;
             }
             
-            h1 {
-                margin-top: 20px;
-                margin-left: 20px;
+            header {
+                display: flex;
+                align-items: center;
             }
             
             p {
@@ -20,7 +21,7 @@
             }
             
             nav {
-                background-color: #a7a7a7;
+                background-color: grey;
                 padding: 10px;
                 overflow: hidden;
             }
@@ -41,23 +42,73 @@
                 padding: 14px 20px;
                 text-decoration: none;
             }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            tr, td, th{
+                border: 2px solid black;
+            }
             
-        </style>
+        </style>-->
     </head>
     <body>
-        <h1>Clientes</h1>
+        <header>
+            <a href="./media/Logo.png" target="_blank"><img src="./media/Logo.png" height="60px" width="60px"></a>
+            <h1>Clientes</h1>
+        </header>
         <nav>
-            <ul> 
+            <ul>
                 <li><a href="./index.html">Inicio</a></li>
                 <li><a href="./empresa.html">Empresa</a></li>
                 <li><a href="./productos.html">Productos</a></li>
                 <li><a href="./consultoria.html">Consultoria</a></li>
+                <li><a href="./clientes.html">Clientes</a></li>
                 <li><a href="./proyectos.html">Proyectos</a></li>
                 <li><a href="./blog.html">Blog</a></li>
                 <li><a href="./noticias.html">Noticias</a></li>
                 <li><a href="./contacto.html">Contacto</a></li>
             </ul>
         </nav>
-        
+        <table>
+            <thead>
+                <th>Nombre</th>
+                <th>Fecha de nacimiento</th>
+                <th>Sexo</th>
+                <th>Pais de procedencia</th>
+            </thead>
+            <tbody>
+               <tr>
+                    <td>Aurelio</td>
+                    <td rowspan="2">Ayer</td>
+                    <td rowspan="2">Macho</td>
+                    <td rowspan="2">España</td>
+                </tr>
+                <tr>
+                    <td>Manolo</td>
+                </tr>
+                <tr>
+                    <td>Maria</td>
+                    <td rowspan="2" colspan="2">Sin Determinar</td>
+                    <td>Italia</td>
+                </tr>
+                <tr>
+                    <td>Anuel BRR</td>
+                    <td>Puerto Rico</td>
+                </tr>
+                <tr>
+                    <td>Pepe</td>
+                    <td colspan="3">Sin determinar</td>
+                </tr> 
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total clientes:</td>
+                    <td>4</td>
+                </tr>
+            </tfoot>
+        </table>
     </body>
 </html>

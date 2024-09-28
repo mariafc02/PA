@@ -1,18 +1,18 @@
 <html>
     <head>
-        
+        <link rel="stylesheet" type="text/css" href="./media/css/global.css">
         <title>Página de inicio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
+        <!--<style>
             body {
                 font-family: "Verdana", sans-serif;
                 margin: 0;
                 padding: 0;
+
             }
 
             header {
-                margin-left: 1%;
                 display: flex;
                 align-items: center;
             }
@@ -22,7 +22,7 @@
             }
             
             nav {
-                background-color: #a7a7a7;
+                background-color: grey;
                 padding: 10px;
                 overflow: hidden;
             }
@@ -44,41 +44,32 @@
                 text-decoration: none;
             }
 
-            /*.problema{
-                position: relative;
-                height: 100%;
-                width: 100%;
-            }
-
-            .clase1{
-                width: 100%;
-                height: 100%;
-                opacity: 0.5;
-            }
-
-            .clase2{
-                position: absolute;
-                margin-bottom: 300px;
-                background-image: url('./media/image1.jpg');
-            }*/
-
             section{
                 background-image: url('./media/image1.jpg');
+                height: 75%;
+                width: 75%;
                 background-size: cover;
+                margin-left: 12.5%;
+            }
+
+            section article{
+                background-color: rgba(255, 255, 255, 0.5);
+                height: 100%;
                 width: 100%;
-                height: 50%;
-                opacity: 0.5;
+                text-align: center;
+                list-style-position: inside;
             }
             
-        </style>
+        </style>-->
     </head>
     <body>
         <header>
-            <a href="./media/Logo.png" target="_blank"><img src="./media/Logo.png" height="50px" width="50px"></a>
+            <a href="./media/Logo.png" target="_blank"><img src="./media/Logo.png" height="60px" width="60px"></a>
             <h1>INICIO</h1>
         </header>
         <nav>
             <ul>
+                <li><a href="./index.html">Inicio</a></li>
                 <li><a href="./empresa.html">Empresa</a></li>
                 <li><a href="./productos.html">Productos</a></li>
                 <li><a href="./consultoria.html">Consultoria</a></li>
@@ -89,13 +80,20 @@
                 <li><a href="./contacto.html">Contacto</a></li>
             </ul>
         </nav>
-        <section class="problema">
-            <!--<div class="clase1">
-                <img src="./media/image1.jpg">
-                <p class="clase2">Esta es</p>                
-            </div>-->
+        <section>
             <article>
-                <p>Este es la pagina de inicio de nuestro almacen.</p>
+                <h3>Este es la pagina de inicio de nuestro almacen.</h3>
+                <h4>Aqui podras encontrar todo tipo de informacion sobre nosotros, por ejemplo:</h4>
+                <ol>
+                    <li>Sobre nuestra empresa.</li>
+                    <li>Sobre nuestros productos.</li>
+                    <li>Consultoria.</li>
+                    <li>Clientes.</li>
+                    <li>Proyectos.</li>
+                    <li>Blog.</li>
+                    <li>Noticiasl.</li>
+                    <li>Contactos.</li>
+                </ol>
             </article>
         </section>
     </body>
