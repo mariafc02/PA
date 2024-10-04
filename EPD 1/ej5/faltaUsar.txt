@@ -1,4 +1,3 @@
-
 <mark> : FALTA USAR. Resalta o marca texto relevante.
 <math> : FALTA USAR. Inserta contenido matemático (usando MathML).
 <meter> : FALTA USAR. Representa un valor escalar en un rango conocido, como un medidor de progreso.
