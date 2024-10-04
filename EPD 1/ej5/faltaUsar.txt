@@ -1,8 +1,0 @@
-done<mark> : FALTA USAR. Resalta o marca texto relevante.
-<math> : FALTA USAR. Inserta contenido matemático (usando MathML).
-<meter> : FALTA USAR. Representa un valor escalar en un rango conocido, como un medidor de progreso.
-<rp> : FALTA USAR. Proporciona texto de respaldo para navegadores que no soportan <ruby>.
-<rt> : FALTA USAR. Proporciona anotaciones en caracteres Ruby (para idiomas como el japonés).
-<ruby> : FALTA USAR. Proporciona anotaciones de texto, comúnmente usado en caracteres asiáticos.
-<svg> : FALTA USAR.Inserta gráficos vectoriales escalables.
-<wbr> : FALTA USAR. Define una oportunidad de salto de línea opcional en el texto.

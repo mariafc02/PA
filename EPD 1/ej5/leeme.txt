@@ -32,3 +32,4 @@ Etiquetas usadas:
 <time> : Usado en el ejercicio 1, en el fichero index.html para
 <aside> : Usado en el ejercicio 4 en ////// para definir contenido adicional que está relacionado con el contenido principal.
 <hgroup> : Usado en el ejercicio 4 en ////// para agrupar los encabezados y que se trate como una única unidad jerárquica.
+<mark> : Usado en todos los ejercicios////// Resalta o marca texto relevante.
