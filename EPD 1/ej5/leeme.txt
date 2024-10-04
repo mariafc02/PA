@@ -1,33 +1,30 @@
-Etiquetas:
+Etiquetas usadas:
 
-<html>: Inicia un documento HTML.
-<head>: Contiene la información meta sobre el documento.
-<body>: Contiene el contenido visible de la página.
-<title>: Define el título de la página (se muestra en la pestaña del navegador).
-<meta charset="UTF-8">: Especifica la codificación de caracteres utilizada en el documento.
-<meta name="viewport" content="width=device-width, initial-scale=1.0">: Define cómo se debe mostrar la página en diferentes dispositivos, especialmente en móviles.
-<h1>: Encabezado de nivel 1 (el título principal de la página).
-<p>: Define un párrafo.
-<form>: Crea un formulario para la entrada de datos del usuario.
-<label>: Proporciona una etiqueta para un elemento de formulario.
-<input>: Crea un campo de entrada; puede ser de diferentes tipos (texto, contraseña, botón).
-<br>: Inserta un salto de línea.
-<style>: Define estilos CSS para la página.
-<div>: Utilizada para agrupar contenido.
-<a>: Se usa para crear enlaces.
-<thead>: Define la sección de encabezado de una tabla.
-<tbody>: Define el cuerpo de una tabla.
-<tfoot>: Define la sección de pie de tabla.
-<tr>: Define una fila en una tabla.
-<th>: Define una celda de encabezado en una tabla.
-<td>: Define una celda de datos en una tabla.
-<article>: Representa una composición independiente en un documento.
-<section>: Define secciones temáticas en un documento.
-<form>: Define un formulario para la entrada de datos.
-<label>: Asocia un texto descriptivo con un elemento de formulario.
-<input>: Define un campo de entrada para datos del usuario.
-<video>: Define un contenido de video.
-<audio>: Define contenido de audio.
-<figure>: Se utiliza para encapsular contenido visual como imágenes, gráficos o videos junto con su leyenda.
-<figcaption>: Proporciona una descripción o título para el contenido dentro de un elemento <figure>.
-<iframe>: Se utiliza para incrustar otro documento HTML dentro del documento actual, como un video de YouTube.
+<html> : Usada en todos los archivos para iniciar un documento HTML.
+<head> : Usada en todos los archivos, contiene la información meta sobre el documento.
+<body> : Usada en todos los archivos, contiene el contenido visible de la página.
+<title> : Usada en todos los archivos para definir el título de la pagina, se muestra en la pestaña del navegador.
+<meta charset="UTF-8"> : Usada en todos los archivos para especificar la codificación de caracteres utilizada en el documento.
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> : Usada en todos los archivos para definir cómo se debe msotrar la página en diferentes dispositivos, especialmente en móviles.
+<h1> : Usado en todas las páginas para poner el título principal de la página.
+<p> : Usado en /////, para definir párrafos y ayudar al usuario a comprender nuestra página.
+<form> : Usado en //////// para crear un formulario para la entrada de datos del usuario.
+<label> : Usado en ////// para proporcionar una etiqueta para un elemento del formulario.
+<input> : Usado en ///// para crear un campo de entrada para datos del usuario, que puede ser de diferentes tipos (texto, contraseña o botón).
+<br> : Usado en ////// para insertar un salto de línea.
+<div> : Usado en ///// para agrupar contenido.
+<a> : Usado en ///// para crear enlaces.
+<thead> : Usado en //// para definir la sección de encabezado de una tabla.
+<tbody> : Usado en ///// para definir el cuerpo de una tabla.
+<tfoot> : Usado en ///// para definir la sección de pie de tabla.
+<tr> : Usado en ///// para definir una fila de una tabla.
+<th> : Usado en ///// para definir una celda de encabezado en una tabla.
+<td> : Usado en ///// para definir una celda de datos en una tabla.
+<article> : Usado en ///// para representar una composición independiente en el documento.
+<section> : Usado en ///// para definir secciones temáticas en el documento.
+<video> : Usado en ///// para definir un contenido de video.
+<audio> : Usado en ///// para definir un contenido de audio.
+<figure> : Usado en ///// para encapsular contenido visual como imágenes, gráficos o videos junto con su leyenda.
+<figcaption> : Usado en ///// para proporcionar una descripción o título para el contenido dentro de un elemento <figure>.
+<iframe> : Usado en ///// para incrustar otro documento HTML dentro del documento actual, como un video de Youtube.
+<nav> : Usado en ///// para definir un bloque de navegación.

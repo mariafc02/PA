@@ -1,0 +1,13 @@
+<aside> : FALTA USAR. Define contenido relacionado de manera lateral, como barras laterales.
+<footer> : FALTA USAR. Representa el pie de página de un documento o sección.
+<header> : FALTA USAR. Define la cabecera de un documento o sección.
+<hgroup> : FALTA USAR. Agrupa elementos de encabezado (h1 a h6).
+<mark> : FALTA USAR. Resalta o marca texto relevante.
+<math> : FALTA USAR. Inserta contenido matemático (usando MathML).
+<meter> : FALTA USAR. Representa un valor escalar en un rango conocido, como un medidor de progreso.
+<rp> : FALTA USAR. Proporciona texto de respaldo para navegadores que no soportan <ruby>.
+<rt> : FALTA USAR. Proporciona anotaciones en caracteres Ruby (para idiomas como el japonés).
+<ruby> : FALTA USAR. Proporciona anotaciones de texto, comúnmente usado en caracteres asiáticos.
+<svg> : FALTA USAR.Inserta gráficos vectoriales escalables.
+<time> : FALTA USAR. Representa una fecha u hora específica.
+<wbr> : FALTA USAR. Define una oportunidad de salto de línea opcional en el texto.
