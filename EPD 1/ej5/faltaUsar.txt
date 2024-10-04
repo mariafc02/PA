@@ -1,4 +1,4 @@
-<mark> : FALTA USAR. Resalta o marca texto relevante.
+done<mark> : FALTA USAR. Resalta o marca texto relevante.
 <math> : FALTA USAR. Inserta contenido matemático (usando MathML).
 <meter> : FALTA USAR. Representa un valor escalar en un rango conocido, como un medidor de progreso.
 <rp> : FALTA USAR. Proporciona texto de respaldo para navegadores que no soportan <ruby>.
