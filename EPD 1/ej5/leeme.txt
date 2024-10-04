@@ -1,35 +1,35 @@
 Etiquetas usadas:
 
-<html> : Usada en todos los archivos para iniciar un documento HTML.
-<head> : Usada en todos los archivos, contiene la información meta sobre el documento.
-<body> : Usada en todos los archivos, contiene el contenido visible de la página.
-<footer> : Usada en todos los archivos para definir el pie de pagina de nuestra página web.
-<title> : Usada en todos los archivos para definir el título de la pagina, se muestra en la pestaña del navegador.
-<meta charset="UTF-8"> : Usada en todos los archivos para especificar la codificación de caracteres utilizada en el documento.
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> : Usada en todos los archivos para definir cómo se debe msotrar la página en diferentes dispositivos, especialmente en móviles.
-<h1> : Usado en todas las páginas para poner el título principal de la página.
-<p> : Usado en /////, para definir párrafos y ayudar al usuario a comprender nuestra página.
-<form> : Usado en //////// para crear un formulario para la entrada de datos del usuario.
-<label> : Usado en ////// para proporcionar una etiqueta para un elemento del formulario.
-<input> : Usado en ///// para crear un campo de entrada para datos del usuario, que puede ser de diferentes tipos (texto, contraseña o botón).
-<br> : Usado en ////// para insertar un salto de línea.
-<div> : Usado en ///// para agrupar contenido.
-<a> : Usado en ///// para crear enlaces.
-<thead> : Usado en //// para definir la sección de encabezado de una tabla.
-<tbody> : Usado en ///// para definir el cuerpo de una tabla.
-<tfoot> : Usado en ///// para definir la sección de pie de tabla.
-<tr> : Usado en ///// para definir una fila de una tabla.
-<th> : Usado en ///// para definir una celda de encabezado en una tabla.
-<td> : Usado en ///// para definir una celda de datos en una tabla.
-<article> : Usado en ///// para representar una composición independiente en el documento.
-<section> : Usado en ///// para definir secciones temáticas en el documento.
-<video> : Usado en ///// para definir un contenido de video.
-<audio> : Usado en ///// para definir un contenido de audio.
-<figure> : Usado en ///// para encapsular contenido visual como imágenes, gráficos o videos junto con su leyenda.
-<figcaption> : Usado en ///// para proporcionar una descripción o título para el contenido dentro de un elemento <figure>.
-<iframe> : Usado en ///// para incrustar otro documento HTML dentro del documento actual, como un video de Youtube.
-<nav> : Usado en ///// para definir un bloque de navegación.
-<time> : Usado en el ejercicio 1, en el fichero index.html para
-<aside> : Usado en el ejercicio 4 en ////// para definir contenido adicional que está relacionado con el contenido principal.
-<hgroup> : Usado en el ejercicio 4 en ////// para agrupar los encabezados y que se trate como una única unidad jerárquica.
-<mark> : Usado en todos los ejercicios////// Resalta o marca texto relevante.
+<html> : Usada en todos los ejercicios para iniciar un documento HTML.
+<head> : Usada en todos los ejercicios, contiene la información meta sobre el documento.
+<body> : Usada en todos los ejercicios, contiene el contenido visible de la página.
+<footer> : Usada en todos los ejercicios para definir el pie de pagina de nuestra página web.
+<title> : Usada en todos los ejercicios para definir el título de la pagina, se muestra en la pestaña del navegador.
+<meta charset="UTF-8"> : Usada en todos los ejercicios para especificar la codificación de caracteres utilizada en el documento.
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> : Usada en todos los ejercicios para definir cómo se debe msotrar la página en diferentes dispositivos, especialmente en móviles.
+<h1> : Usado en todos los ejercicios para poner el título principal de la página.
+<p> : Usado en todos los ejercicios, para definir párrafos y ayudar al usuario a comprender nuestra página.
+<form> : Usado en todos los ejercicios para crear un formulario para que el usuario pueda introducir datos.
+<label> : Usado en todos los ejercicios para proporcionar una etiqueta para un elemento del formulario.
+<input> : Usado en todos los ejercicios para crear un campo de entrada para datos del usuario, que puede ser de diferentes tipos (texto, contraseña o botón).
+<br> : Usado en todos los ejercicios para insertar un salto de línea.
+<a> : Usado en todos los ejercicios para crear enlaces.
+<table> : Usado en algunos ejercicios para definir una tabla.
+<thead> : Usado en los ejercicios donde se ha usado el <table> para definir la sección de encabezado de una tabla.
+<tbody> : Usado en los ejercicios donde se ha usado el <thead> para definir el cuerpo de una tabla.
+<tfoot> : Usado en algunos ejercicios para definir la sección de pie de tabla.
+<tr> : Usado en los ejercicios donde se ha usado <table> para definir una fila de una tabla.
+<th> : Usado en los ejercicios donde se ha usado <table> para definir una celda de encabezado en una tabla.
+<td> : Usado en los ejercicios donde se ha usado <table> para definir una celda de datos en una tabla.
+<section> : Usado en todos los ejercicios para definir secciones temáticas en el documento.
+<article> : Usado en los ejercicios donde se ha usado <section> para representar una composición independiente en el documento.
+<video> : Usado en el ejercicio 3 para definir un contenido de video.
+<audio> : Usado en el ejercicio 3 para definir un contenido de audio.
+<figure> : Usado en algunos ejercicios para encapsular contenido visual como imágenes, gráficos o videos junto con su leyenda.
+<figcaption> : Usado en algunos ejercicios donde se ha usado <figure> para proporcionar una descripción o título para el contenido dentro de un elemento <figure>.
+<iframe> : Usado en el ejercicio 4 para incrustar otro documento HTML dentro del documento actual, como un video de Youtube.
+<nav> : Usado en en todos los ejercios para definir un bloque de navegación.
+<time> : Usado en el ejercicio 1, en el fichero index.html para representar una fecha.
+<aside> : Usado en el ejercicio 4 en para definir contenido adicional que está relacionado con el contenido principal.
+<hgroup> : Usado en el ejercicio 4 en para agrupar los encabezados y que se trate como una única unidad jerárquica.
+<mark> : Usado en todos los ejercicios para resaltar o marcar texto relevante.
