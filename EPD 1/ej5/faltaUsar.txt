@@ -5,5 +5,4 @@
 <rt> : FALTA USAR. Proporciona anotaciones en caracteres Ruby (para idiomas como el japonés).
 <ruby> : FALTA USAR. Proporciona anotaciones de texto, comúnmente usado en caracteres asiáticos.
 <svg> : FALTA USAR.Inserta gráficos vectoriales escalables.
-<time> : FALTA USAR. Representa una fecha u hora específica.
 <wbr> : FALTA USAR. Define una oportunidad de salto de línea opcional en el texto.
