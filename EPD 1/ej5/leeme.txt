@@ -3,6 +3,7 @@ Etiquetas usadas:
 <html> : Usada en todos los archivos para iniciar un documento HTML.
 <head> : Usada en todos los archivos, contiene la información meta sobre el documento.
 <body> : Usada en todos los archivos, contiene el contenido visible de la página.
+<footer> : Usada en todos los archivos para definir el pie de pagina de nuestra página web.
 <title> : Usada en todos los archivos para definir el título de la pagina, se muestra en la pestaña del navegador.
 <meta charset="UTF-8"> : Usada en todos los archivos para especificar la codificación de caracteres utilizada en el documento.
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> : Usada en todos los archivos para definir cómo se debe msotrar la página en diferentes dispositivos, especialmente en móviles.
@@ -28,3 +29,6 @@ Etiquetas usadas:
 <figcaption> : Usado en ///// para proporcionar una descripción o título para el contenido dentro de un elemento <figure>.
 <iframe> : Usado en ///// para incrustar otro documento HTML dentro del documento actual, como un video de Youtube.
 <nav> : Usado en ///// para definir un bloque de navegación.
+<time> : Usado en el ejercicio 1, en el fichero index.html para
+<aside> : Usado en el ejercicio 4 en ////// para definir contenido adicional que está relacionado con el contenido principal.
+<hgroup> : Usado en el ejercicio 4 en ////// para agrupar los encabezados y que se trate como una única unidad jerárquica.
