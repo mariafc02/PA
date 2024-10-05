@@ -1,0 +1,50 @@
+
+<!-- Cree una hoja de estilo para "login.html" y sus hijos. 
+Deberá tener un diseño fijo y no tendrá un fichero CSS propio sino que 
+el diseño será incrustado en la misma página HTML. 
+Cree una separación en varias columnas usando float.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                box-sizing: border-box; /*Si no se añade esto, el tamaño 
+                aumenta si añadimos padding y borde*/
+            }
+
+            .contenedor {
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .columna {
+                float: left;
+                width: 33.33%;
+                padding: 10px;
+                background-color: lightgray;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form>
+            <label for="usuario">Usuario: </label>
+            <br>
+            <input type="text" id="usuario" required>
+            <br>
+            <label for="password">Password: </label>
+            <br>
+            <input type="password" id="password" required>
+            <br>
+            <input type="submit">
+        </form>
+    </body>
+    <footer>
+        <mark>Contacta con nosotros:<br>+34 000000000<br>info@almacen.es</mark>
+    </footer>
+</html>
