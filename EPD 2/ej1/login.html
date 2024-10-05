@@ -12,39 +12,95 @@ Cree una separación en varias columnas usando float.-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             * {
-                box-sizing: border-box; /*Si no se añade esto, el tamaño 
-                aumenta si añadimos padding y borde*/
+                box-sizing: border-box; /* Asegura que padding y borde se incluyan en el ancho */
+                font-family: 'Roboto', sans-serif;
             }
 
             .contenedor {
-                width: 100%;
-                margin: 0 auto;
+                width: 960px; /* Diseño fijo de 960px */
+                margin: 0 auto; /* Centrar el contenedor en la página */
             }
 
             .columna {
                 float: left;
-                width: 33.33%;
+                width: 50%; /* Dos columnas, cada una ocupa el 50% */
+                padding: 20px;
+                
+                box-sizing: border-box; /* Incluir padding y borde en el ancho total */
+            }
+
+            .clearfix::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            h1 {
+                background-color: #A2CADF;
+                text-align: center;
                 padding: 10px;
-                background-color: lightgray;
-                border: 1px solid black;
+            }
+
+            h1, h2 {
+                text-transform: uppercase;
+            }
+
+            body {
+                background-color: white;
+            }
+
+            /* Estilos para el pie de página */
+            footer {
+                width: 100%; /* Ocupa todo el ancho de la página */
+                padding: 10px;
+                background-color: #A2CADF;
+                color: white;
+                text-align: center; /* Centrar el texto en el pie de página */
+                position: relative;
+                width: fit-content;
+                margin: 10px auto;
+                
+            }
+
+            mark {
+                background-color: lightgoldenrodyellow;
             }
         </style>
     </head>
     <body>
         <h1>Login</h1>
-        <form>
-            <label for="usuario">Usuario: </label>
-            <br>
-            <input type="text" id="usuario" required>
-            <br>
-            <label for="password">Password: </label>
-            <br>
-            <input type="password" id="password" required>
-            <br>
-            <input type="submit">
-        </form>
+        <section class="contenedor clearfix">
+            <!-- Columna del formulario -->
+            <section class="columna">
+                <h2>Inicia sesión</h2>
+                <form>
+                    <label for="usuario">Usuario: </label>
+                    <br>
+                    <input type="text" id="usuario" required>
+                    <br>
+                    <br>
+                    <label for="password">Password: </label>
+                    <br>
+                    <input type="password" id="password" required>
+                    <br>
+                    <br>
+                    <input type="submit" value="Login">
+                </form>
+            </section>
+
+            <!-- Columna del contacto -->
+            <section class="columna">
+                <h2>Contacto</h2>
+                <mark>Contacta con nosotros vía</mark>
+                <br>
+                <p><strong>Teléfono:</strong> +34 000000000</p>
+                <p><strong>Email:</strong> info@almacen.es</p>
+            </section>
+        </section>
+
+        <!-- Pie de página fuera del contenedor de columnas -->
+        <footer>
+            <strong>Contacta con nosotros: +34 000000000 | info@almacen.es</strong>
+        </footer>
     </body>
-    <footer>
-        <mark>Contacta con nosotros:<br>+34 000000000<br>info@almacen.es</mark>
-    </footer>
 </html>
