@@ -22,20 +22,16 @@ header a {
 }
 
 footer {
+    clear: both;
     margin-top: 20px;
     font-size: 0.8em;
 }
 
-main {
-    display: flex;
+main{
     padding: 10px;
-}
-
-nav{
-    flex: 1;
-    padding: 10px;
-    border: 2px solid #ccc;
-    background-color: #f9f9f9;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 2%;
 }
 
 nav ul{
@@ -57,19 +53,15 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #007BFF; /* Cambia color al pasar el ratón */
+    color: #007BFF;
 }
 
-section {
-    flex: 3;
-    margin-left: 2%;
+section{
     padding: 20px;
 }
 
-.columna3{
-    flex: 1;
-    margin-left: 2%;
-    padding: 10px;
-    border: 2px solid #ccc;
+.columna13{
     background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    padding: 10px;
 }
