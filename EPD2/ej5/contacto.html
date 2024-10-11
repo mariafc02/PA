@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contacto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/general.css">
+    </head>
+    <body>
+        <header>
+            <a href="./media/Logo.png" target="_blank"><img src="./media/Logo.png" height="60px" width="60px"></a>
+            <h1>Contacto</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./empresa.html">Empresa</a></li>
+                <li><a href="./productos.html">Productos</a></li>
+                <li><a href="./consultoria.html">Consultoria</a></li>
+                <li><a href="./clientes.html">Clientes</a></li>
+                <li><a href="./proyectos.html">Proyectos</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./noticias.html">Noticias</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <section>
+            <h2>Formulario para registrar tipo de producto:</h2>
+            <form>
+                <label for="producto">Tipo de Producto:</label>
+                <input type="text" id="producto" name="producto" placeholder="Silla de montar, herraduras... required"><br><br>
+    
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="herraduras">Herraduras</option>
+                    <option value="sillas">Sillas de Montar</option>
+                    <option value="alimento">Alimento</option>
+                    <option value="cuidado">Productos de Cuidado</option>
+                </select><br><br>
+    
+                <label for="precio">Precio (€):</label>
+                <input type="number" id="precio" name="precio" min="0" step="0.1" required><br><br>
+    
+                <label for="fecha-llegada">Fecha de llegada al almacén:</label>
+                <input type="date" if="fecha-llegada" name="fecha-llegada" required><br><br>
+    
+                <label for="cantidad">Cantidad disponible:</label>
+                <input type="range" id="cantidad" name="cantidad" min="1" max="50" value="50"><br><br>
+    
+                <label for="referencia">Número de referencia: </label>
+                <input type="tel" id="referencia" name="referencia" pattern="[0-9]{10}" placeholder="10 dígitos"><br><br>
+    
+                <label for="codigo">Código de barras:</label>
+                <input type="number" id="codigo" name="codigo" required><br><br>
+    
+                <label for="email">Email del cliente:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                
+                <label for="foto">Subir foto del producto:</label>
+                <input type="file" id="foto" name="foto" accept="image/*"><br><br>
+    
+                <label for="terminos">Acepto los términos y condiciones</label>
+                <input type="checkbox" id="terminos" name="terminos" required><br><br>
+    
+                <label for="pago">Método de pago:</label>
+                <input type="radio" id="tarjeta" name="pago" value="tarjeta" checked>
+                <label for="tarjeta">Tarjeta de crédito:</label>
+                <input type="radio" id="paypal" name="pago" value="paypal">
+                <label for="paypal">Paypal</label><br><br>
+    
+                <label for="descripcion">Descripción del producto:</label><br>
+                <textarea id="descripcion" name="descripcion" rows="4" cols="50" placeholder="Detalles sobre el producto"></textarea><br><br>
+    
+                <label for="hora">Hora de entrega esperada:</label>
+                <input type="time" id="hora" name="hora"><br><br>
+    
+                <input type="submit" value="Registrar producto">
+            </form>
+        </section>
+        
+        <footer>
+            <mark>Contacta con nosotros:<br>+34 000000000<br>info@almacen.es</mark>
+        </footer>
+    </body>
+</html>
