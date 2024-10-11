@@ -7,10 +7,21 @@
     <link rel="stylesheet" href="3columnasFlexbox.css" id="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="column column1">Columna 1: Contenido principal</div>
-        <div class="column column2">Columna 2: Contenido secundario</div>
-        <div class="column column3">
+    <header>
+        <h1>Prueba</h1>
+    </header>
+    <main>
+        <nav>
+            <ul>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+        
+        <section>
+            <h3>Columna 2: Contenido secundario</h3>
+        </section>
+    
+        <section>
             <h3>Información Extra</h3>
             <p>Enlaces:</p>
             <ul>
@@ -19,17 +30,19 @@
                 <li><a href="noticia2.html">Noticia 2</a></li>
                 <li><a href="noticia3.html">Noticia 3</a></li>
             </ul>
-        </div>
-    </div>
+        </section>
+    </main>
+    <footer>
+        <button onclick="cambiarEstilo('3columnasFlexbox.css')">Flexbox</button>
+        <button onclick="cambiarEstilo('3columnasGrid.css')">Grid</button>
+        <button onclick="cambiarEstilo('3columnasFloat.css')">Float</button>
 
-    <button onclick="cambiarEstilo('3columnasFlexbox.css')">Flexbox</button>
-    <button onclick="cambiarEstilo('3columnasGrid.css')">Grid</button>
-    <button onclick="cambiarEstilo('3columnasFloat.css')">Float</button>
+        <script>
+            function cambiarEstilo(nuevoEstilo) {
+                document.getElementById('stylesheet').setAttribute('href', nuevoEstilo);
+            }
+        </script>
+    </footer>
 
-    <script>
-        function cambiarEstilo(nuevoEstilo) {
-            document.getElementById('stylesheet').setAttribute('href', nuevoEstilo);
-        }
-    </script>
 </body>
 </html>

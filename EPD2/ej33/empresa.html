@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Blog</title>
+        <title>Empresa</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/general.css">
@@ -9,12 +9,15 @@
     <body>
         <header>
             <a href="./media/Logo.png" target="_blank"><img src="./media/Logo.png" height="60px" width="60px"></a>
-            <h1>Blog</h1>
+            <h1>EMPRESA</h1>
         </header>
         <nav>
             <ul>
                 <li><a href="./index.html">Inicio</a></li>
                 <li><a href="./empresa.html">Empresa</a></li>
+                <ul>
+                    <li><a href="./nosotros.html">Nosotros</a></li>
+                </ul>
                 <li><a href="./productos.html">Productos</a></li>
                 <li><a href="./consultoria.html">Consultoria</a></li>
                 <li><a href="./clientes.html">Clientes</a></li>
@@ -25,15 +28,13 @@
             </ul>
         </nav>
         <section>
-            <article>
-                <h4>Aqui podras encontrar sonidos como este:</h4>
-                <audio src="./media/relincho.mp3" controls></audio>
-                <h4>Y encontraras tambien estas maravillosas vistas:</h4>
-                <embed src="./media/gif1.gif">
-            </article>
+            <h4>Este video esta grabado en nuestras instalaciones. pulsa en <a href="./nosotros.html">nosotros</a>
+                para mas informacion.</h4>
+            <video src="./media/video1.mp4" controls width="25%">El video no se puede reproducir</video>
         </section>
+        
+        <footer>
+            <mark>Contacta con nosotros:<br>+34 000000000<br>info@almacen.es</mark>
+        </footer>
     </body>
-    <footer>
-        <mark>Contacta con nosotros:<br>+34 000000000<br>info@almacen.es</mark>
-    </footer>
 </html>
