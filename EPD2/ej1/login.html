@@ -12,30 +12,23 @@ Cree una separación en varias columnas usando float.-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             * {
-                box-sizing: border-box; /* Asegura que padding y borde se incluyan en el ancho */
+                box-sizing: border-box;
                 font-family: 'Roboto', sans-serif;
             }
 
-            .contenedor {
-                /*width: 800px; Diseño fijo de 960px */
-                margin: 0 auto; /* Centrar el contenedor en la página */
+            main {
+                margin: 0 auto;
             }
 
-            .columna {
+            section {
                 float: left;
-                width: 400px; /* Dos columnas, cada una ocupa el 50% */
+                width: 400px;
                 padding: 20px;
                 text-align: center;
-                box-sizing: border-box; /* Incluir padding y borde en el ancho total */
+                box-sizing: border-box;
             }
 
-            /*.clearfix::after {
-                content: "";
-                display: table;
-                clear: both;
-            }*/
-
-            h1 {
+            header {
                 background-color: #A2CADF;
                 text-align: center;
                 padding: 10px 400px;
@@ -74,12 +67,11 @@ Cree una separación en varias columnas usando float.-->
                 padding: 2px 0;
             }
 
-            /* Estilos para el pie de página */
             footer {
                 clear: both;
                 background-color: #A2CADF;
                 color: white;
-                text-align: center;  /*Centrar el texto en el pie de página */
+                text-align: center;
                 position: relative;
                 margin-top: 10px; 
                 width: 800px;
@@ -89,10 +81,12 @@ Cree una separación en varias columnas usando float.-->
         </style>
     </head>
     <body>
-        <h1>Login</h1>
-        <section class="contenedor"><!--clearfix-->
-            <!-- Columna del formulario -->
-            <section class="columna">
+        <header>
+            <h1>Login</h1>
+        </header>
+
+        <main>
+            <section>
                 <h2>Inicia sesión</h2>
                 <form>
                     <label for="usuario">Usuario: </label>
@@ -109,8 +103,7 @@ Cree una separación en varias columnas usando float.-->
                 </form>
             </section>
 
-            <!-- Columna del contacto -->
-            <section class="columna">
+            <section>
                 <article>
                     <h2>Contacto</h2>
                     <p>Contacta con nosotros vía</p>
@@ -118,9 +111,8 @@ Cree una separación en varias columnas usando float.-->
                     <p><strong>Email:</strong> info@almacen.es</p>
                 </article>
             </section>
-        </section>
-
-        <!-- Pie de página fuera del contenedor de columnas -->
+        </main>
+        
         <footer>
             <strong>Contacta con nosotros: +34 000000000 | info@almacen.es</strong>
         </footer>
