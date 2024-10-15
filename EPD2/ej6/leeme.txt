@@ -1,13 +1,18 @@
+--------------------------------------------------------------------------------------------------------------------------------
 ESTILOS:
+--------------------------------------------------------------------------------------------------------------------------------
 
 En el ej1, hemos usado un estilo de diseño fijo y esta incrustado en el html.
 En el ej2, hemos creado un estilo llamado 'general.css' que hemos usado para las paginas padres, con diseño grid a 2 columnas.
-En el ej3, hemos 
-
+En el ej3, hemos creado 3 estilos llamados '3columnasFlexbox.css' , '3columnasFloat.css' y '3columnasGrid.css' que
+    se usan en las paginas hijas con una estructuras de 3 columnas cada una.
+En el ej4, hemos creado un estilo llamado 'index.css' que se usa solo y exclusivamente en 'index.html', con un menu
+    de navegacion en la parte superior.
+En el ej5, hemos modificado el estilo creado en el ej4 llamado 'index.css' para añadirle un menu en la parte inferior.
 
 --------------------------------------------------------------------------------------------------------------------------------
-
 ATRIBUTOS:
+--------------------------------------------------------------------------------------------------------------------------------
 
 box-sizing
 margin
