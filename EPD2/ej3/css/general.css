@@ -7,12 +7,12 @@ body {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: 200px 1fr; /* Dos columnas: 200px para menú y resto para contenido */
+    grid-template-columns: 200px 1fr;
     gap: 10px;
 }
 
 header, footer {
-    grid-column: 1 / -1; /* Ocupa ambas columnas */
+    grid-column: 1 / -1;
     background-color: #f2f2f2;
     text-align: center;
     margin: 2px;
@@ -43,7 +43,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #007BFF; /* Cambia color al pasar el ratón */
+    color: #007BFF;
 }
 
 section {

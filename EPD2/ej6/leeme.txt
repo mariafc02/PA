@@ -1,0 +1,34 @@
+ESTILOS:
+
+En el ej1, hemos usado un estilo de diseño fijo y esta incrustado en el html.
+En el ej2, hemos creado un estilo llamado 'general.css' que hemos usado para las paginas padres, con diseño grid a 2 columnas.
+En el ej3, hemos 
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+ATRIBUTOS:
+
+box-sizing
+margin
+margin-top
+margin-left
+width
+padding
+position
+font-family
+font-size
+display
+grid-template-columns
+grid-column
+gap
+float
+clear
+background-color
+color
+border
+border-radius
+text-align
+text-transform
+text-decoration
+list-style-type
