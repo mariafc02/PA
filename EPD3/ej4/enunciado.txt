@@ -1,0 +1,35 @@
+
+ Ej4. (100 mins.) Para mejorar la eficiencia en la gestión del inventario y pedidos de un almacén de productos, se solicita
+ desarrollar una aplicación que permita identificar el producto con la mayor cantidad en stock. Supongamos que contamos
+ con una lista de pasillos del almacén, un listado de estantes y productos. Además, para cada producto, deseamos
+ almacenar información sobre su cantidad en stock existente. La información que manejaremos será similar al siguiente
+ ejemplo:
+
+
+ Para representar esta información en la aplicación, emplee un vector multidimensional, declarado estáticamente en su
+ código, para organizar los datos de la siguiente manera:
+
+● ID del pasillo (localización): Será un índice numérico.
+    ○ ID del estante (localización): En esta dimensión, los índices serán cadenas de caracteres.
+        ■ Productos existentes: En esta tercera dimensión, se almacenarán usando un vector bidimensional el SKU del producto y su 
+        cantidad.
+
+De esta forma, podríamos acceder al segundo estante del primer pasillo de la siguiente forma: $tabla[1][‘a’].
+ Para ayudar al equipo de inventarios y pedidos, nos piden realizar una aplicación que les permita conocer todas las
+ localizaciones dónde está un producto determinado.
+ Desarrolle una función que reciba un un SKU y devuelva el total de stock del producto y su localización.
+ 
+ Ejemplo de entrada:
+    CCT-025000
+ Ejemplo de salida:
+    Pasillo 1 - Estante a - 8 unidades
+    Pasillo 1 - Estante b - 9 unidades
+    Pasillo 2 - Estante c - 17 unidades
+
+ Explicación:
+
+● Pasillo 1 - Primer estante: Se encontró '8 x CCT-025000', por lo que hay 8 unidades.
+
+● Pasillo 1 - Tercer estante: Se encontraron '1 x CCT-025000' y '8 x CCT-025000', sumando un total de 9 unidades.
+
+● Pasillo 2 - Primer estante: Se encontraron '8 x CCT-025000' y '9 x CCT-025000', sumando un total de 17 unidades.

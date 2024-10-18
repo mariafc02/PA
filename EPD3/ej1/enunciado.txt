@@ -1,0 +1,22 @@
+
+Ej1. (35 mins.) El equipo de producto del almacén nos avisa que está desarrollando una funcionalidad novedosa dentro de
+ la página web. Esta funcionalidad consiste en ofrecer opciones personalizadas dentro del apartado de clientes. A cada
+ cliente le aparecerá diferentes opciones según su perfil. Para completar esta funcionalidad se creará un menú dinámico en
+ HTML usando código de PHP. Para completarlo, siga los siguientes pasos:
+
+ - Cree un vector asociativo con diferentes secciones de la web que enlacen con su página HTML correspondiente.
+ Por ejemplo: Almacén (almacen.html), Nosotros (nosotros.html), Blog (blog.html), Novedades (novedades.html),
+ Servicios (servicios.html), etc. No deberá crear el contenido web HTML para cada una, solo deberá simular el
+ enlace.
+
+ - Genere un número aleatorio para decidir cuántas opciones tendrá el usuario visible. Esto simulará que, en cada
+ ejecución, los clientes pueden ver diferentes opciones según su perfil, ya que actualmente no tenemos la lógica
+ implementada para determinar el tipo de cliente. Por tanto, esta funcionalidad nos permite emular variaciones de
+ la experiencia del cliente en cada ejecución del código. Use rand 1
+ para generar un número aleatorio de
+ posibilidades y conseguir esta funcionalidad. Al menos, el usuario tendrá dos opciones visibles en su menú.
+
+ - Recoja, del vector creado anteriormente, el número de opciones correspondiente de manera aleatoria.
+
+ - Cree una página en HTML de forma dinámica con una lista no ordenada que simule el menú generado. No es
+ necesario usar CSS.

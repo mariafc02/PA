@@ -1,0 +1,46 @@
+
+ Ej3. (60 mins.) El equipo de IT nos avisa que se ha estropeado el software de carga de notificaciones productos de entrada
+ al almacén. Dicho programa recibe una cadena de texto y números que se transformarán internamente en solicitudes de
+ alta de productos al inventario en el programa de gestión. Así se controla el stock de forma virtual. Puede encontrar más
+ información en este artículo: https://squareup.com/es/es/townsquare/control-de-stock .
+ Las cadenas de texto que se recibirán tienen un formato del estilo:
+
+<SKU>@@<descripción_de_producto>@@<unidades>@@<fecha_recepcion>
+
+ Dicha tupla se repite N veces y recoge todas las entradas de producto que llegarán al almacén..
+ El separador entre cada parte es “@@”
+
+ Ejemplo:
+ CCIKE123@@Mesa de escritorio@@1@@01/01/2025
+ CCIKE123@@Mesa de escritorio@@3@@02/01/2025
+ CCIKE123@@Mesa de escritorio@@3@@03/01/2025
+ AWERF545@@Mesa de oficina@@1@@01/01/2025
+ RETG@@Silla de oficina@@87@@02/01/2025
+
+ La cadena de entrada sólo contendrá letras del abecedario y números, por tanto no estará presente en ella carácteres
+ como símbolos de puntuación o espacios. Observe que el artículo CCIKE123 tiene asociadas 3 entradas, con diversos
+ número de unidades y fechas.
+ Para ello, dado un texto que se encuentre declarado estáticamente dentro del código de PHP, cree una función que procese
+ las peticiones y las muestre en una tabla ordenada descendentemente por fecha de recepción. El resultado debe ser una
+ matriz de N x 3, siendo N la cantidad de tuplas diferentes existentes. A continuación, se muestra un ejemplo para ilustrar.
+ Nótese que deberá calcular el número de días totales transcurridos entre las la fecha más reciente y la fecha más antigua
+ para determinar el tiempo de recepción de stock. Para ello investigue el funcionamiento de las funciones date_create (Para crear 
+ representaciones de fecha desde cadenas), date_diff (para calcular la diferencia entre dos fechas) y  date_interval_format (Para 
+ extraer de la diferencia el número de días) 5. Por ejemplo, el elemento "CCIKE123" tiene como fecha más reciente el 03/01/2025 y 
+ como fecha más antigua el 01/01/2025. Para los elementos"AWERF545" y "RETG", solo hay una fecha relevante: 01/01/2025 para el primero
+ y 02/01/2025 para el segundo.
+
+
+ Explicación:
+
+● Para el primer producto, “CCIKE123”, existen tres entradas. Por lo tanto, se suma el número de unidades de cada una de ellas (1+3+3).
+ El total de unidades de producto es 7.
+● El producto "AWERF545" solo tiene una entrada, por lo que el total de unidades es 1.
+● El producto "RETG3" tiene una única entrada también, con un total de 8 unidades.
+
+
+ Cree una página PHP que muestre el funcionamiento de la función y que imprima en forma de tabla HTML la salida de la misma.
+ Tenga en cuenta que para realizar este ejercicio necesitará emplear varias funciones:
+ 1. str_split(), para convertir la cadena en un vector sobre el que pueda iterar. También puede usar esta referencia para acceder 
+ carácter a carácter de la cadena.
+ 2. date(), para convertir las fechas en variables con las que pueda operar.
