@@ -57,7 +57,7 @@ function validar(){
         </style>
     </head>
     <body>
-        <?php list($aux,$camposErrores)=validar();print_r($camposErrores);?>
+        <?php list($aux,$camposErrores)=validar()?>
         <form method="POST">
             <label for="nombreCliente">Nombre del cliente:</label>
             <input type="text" id="nombreCliente" name="nombreCliente" 
