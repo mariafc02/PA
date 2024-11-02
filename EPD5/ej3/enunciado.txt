@@ -1,0 +1,93 @@
+Ej3. (120 mins.) El departamento de altas del almacén quiere una forma dinámica de crear formularios para los nuevos
+clientes. Elabore una página en PHP que reciba un fichero CSV para leer el formulario a crear y genere el formulario
+correspondiente.
+
+El fichero de entrada tendrá varias columnas correspondientes al nombre del campo (campo de tipo texto), el tipo del
+campo (campo de tipo selector) y el id del campo (campo de tipo identificador). Únicamente se trabajarán con “input types”12
+de tipo cadena, email y fecha.
+
+Ejemplo de fichero de entrada:
+    Nombre; text; nombre
+    Email; email; email
+    Fecha de Alta; date; fecha
+
+Esto debe generar un formulario operativo con tres campos: uno de texto para almacenar el nombre del cliente, su email y
+un campo para la fecha de alta.
+
+Rellene el formulario con datos de prueba y procese comprobando que todos los campos están rellenos y validados, de
+forma que si todo está correcto muestre un mensaje de validación. Para procesar el formulario, puede ayudarse de la
+página “auxiliar.php”. Use los filtros de saneamiento13 y validación14 15 necesarios. En caso de que alguno de los campos
+sea incorrecto o esté vacío, se deberá volver a solicitar la introducción de los datos, mostrando un mensaje de error que
+informe al usuario explícitamente sobre el error que se ha producido, teniendo en cuenta que los campos que han sido
+rellenos correctamente deben conservar el valor introducido.
+
+Para completar el ejercicio, siga los siguientes puntos:
+    ● Considere la división del ejercicio en dos partes. La primera, consistirá en leer el fichero de especificaciones. A
+        partir de ahí, se generará dinámicamente el formulario. La última parte es la validación del formulario creado.
+    ● Una vez leído, guarde el fichero en disco en la carpeta “data” usando la función move-uploaded-file16. El nombre
+        del fichero tendrá un identificador único de tiempo. Esto permitirá que el programa sea multiusuario. El realizar
+        este paso facilitará la validación de los campos del nuevo formulario creado.
+    ● Al generar el formulario de forma dinámica, use un campo HTML de tipo “hidden” para traspasar el identificador
+        único del documento dentro de disco. En este punto, el formulario estará generado dinámicamente y faltará
+        rellenarlo para ser validado.   
+
+La última fase, es la fase de validación. En esta fase, al tener el identificador del fichero, podrá localizarlo, leerlo y
+procesarlo. Gracias a este punto, podrá conocer cuántos campos y de qué tipo son. A partir de aquí, podrá validarlos.
+
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['csv_file'])) {
+    $file = $_FILES['csv_file']['tmp_name'];
+    $formFields = [];
+
+    if (($handle = fopen($file, "r")) !== false) {
+        // Leer cada línea del archivo CSV
+        while (($data = fgetcsv($handle, 1000, ";")) !== false) {
+            if (count($data) === 3) {
+                $formFields[] = [
+                    'label' => $data[0],
+                    'type' => $data[1],
+                    'id' => $data[2]
+                ];
+            }
+        }
+        fclose($handle);
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Generador de Formulario Dinámico</title>
+</head>
+<body>
+    <h1>Generar formulario a partir de CSV</h1>
+
+    <!-- Formulario para subir el archivo CSV -->
+    <form action="" method="POST" enctype="multipart/form-data">
+        <label for="csv_file">Seleccione el archivo CSV:</label>
+        <input type="file" name="csv_file" id="csv_file" accept=".csv" required>
+        <button type="submit">Generar Formulario</button>
+    </form>
+
+    <?php if (!empty($formFields)): ?>
+        <h2>Formulario generado</h2>
+        <form action="procesar_formulario.php" method="POST">
+            <?php foreach ($formFields as $field): ?>
+                <label for="<?= htmlspecialchars($field['id']) ?>"><?= htmlspecialchars($field['label']) ?></label>
+                
+                <?php if (in_array($field['type'], ['text', 'email', 'date'])): ?>
+                    <input type="<?= htmlspecialchars($field['type']) ?>" id="<?= htmlspecialchars($field['id']) ?>" name="<?= htmlspecialchars($field['id']) ?>" required>
+                <?php else: ?>
+                    <p>Error: Tipo de campo inválido (<?= htmlspecialchars($field['type']) ?>).</p>
+                <?php endif; ?>
+                <br>
+            <?php endforeach; ?>
+            <button type="submit">Enviar</button>
+        </form>
+    <?php endif; ?>
+</body>
+</html>
+
