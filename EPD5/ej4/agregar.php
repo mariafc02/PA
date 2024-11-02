@@ -42,7 +42,7 @@ function validar(){
             
             $csv = "inventario.csv";
             $archivo = fopen($csv, "a");
-            if ($archivo !== FALSE) {
+            if ($archivo !== false) {
                 flock($archivo, LOCK_EX);
                 fputcsv($archivo, [$id, $nombre, $descripcion, $cantidad, $precio]);
                 flock($archivo, LOCK_UN);
