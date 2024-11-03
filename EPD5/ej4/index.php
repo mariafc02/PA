@@ -6,7 +6,7 @@ function inventario($csv) {
 
     if ($archivo !== false) {
         flock($archivo, LOCK_SH);
-        while (($datos = fgetcsv($archivo, 500, ",")) !== FALSE) {
+        while (($datos = fgetcsv($archivo, 500, ",")) !== false) {
             $inventarioAux[] = $datos;
         }
         flock($archivo, LOCK_UN);
@@ -28,7 +28,7 @@ function eliminar($csv, $id){
     
     if ($archivo !== false) {
         flock($archivo, LOCK_SH);
-        while (($datos = fgetcsv($archivo, 500, ",")) !== FALSE) {
+        while (($datos = fgetcsv($archivo, 500, ",")) !== false) {
             if ($datos[0] != $id) {
                 $inventarioAux[] = $datos;
             }

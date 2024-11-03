@@ -10,14 +10,29 @@ function validar(){
 
     if(!empty($_POST)){
         $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT);
+        $idUsado = false;
+
+        $csv = "inventario.csv";
+        $archivoControlar=fopen($csv, "r");
+        if($archivoControlar !== false){
+            flock($archivoControlar, LOCK_SH);
+            while(($datos = fgetcsv($archivoControlar, 500, ",")) !== false){
+                if($datos[0] == $id){
+                    $idUsado = true;
+                    break;
+                }
+            }
+            flock($archivoControlar, LOCK_UN);
+            fclose($archivoControlar);
+        }
+
         $nombre = htmlspecialchars(trim($_POST["nombre"]));
         $descripcion = htmlspecialchars(trim($_POST["descripcion"]));
         $cantidad = filter_input(INPUT_POST, "cantidad", FILTER_SANITIZE_NUMBER_INT);
-        $precio = $_POST["precio"];
-        //$precio = filter_input(INPUT_POST, "precio", FILTER_SANITIZE_NUMBER_FLOAT);
+        $precio = filter_input(INPUT_POST, "precio", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
-        if(!$id || $id <= 0 || $id===null){
-            $errores[] = "El ID debe ser mayor que 0, entero y no puede estar vacio.";
+        if(!$id || $id <= 0 || $id===null || $idUsado===true){
+            $errores[] = "El ID debe ser mayor que 0, entero, no puede estar vacio y no puede estar ya usado.";
             $camposErroresAux["id"]=true;
         }
         if(!$nombre || $nombre===null){
@@ -40,7 +55,6 @@ function validar(){
         if(empty($errores)){
             $aux=false;
             
-            $csv = "inventario.csv";
             $archivo = fopen($csv, "a");
             if ($archivo !== false) {
                 flock($archivo, LOCK_EX);
