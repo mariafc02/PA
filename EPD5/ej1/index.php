@@ -9,7 +9,7 @@ function validar(){
     $aux=false;
     
     if(!empty($_POST)){
-        $email=filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+        $email=trim(filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL));
         $date=date("d-m-Y H:i:s");
 
         if(!$email || $email===null){
