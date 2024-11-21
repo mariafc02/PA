@@ -1,22 +1,19 @@
 <?php
 include 'utilidad.php';
 
-$aux=true;
-
-function validar(){
-    $aux=false;
+function validar($con){
     $campoErroresAux=[];
     $errores=[];
     
-    if(!empty($_POST)){
+    if(isset($_POST["registro"])){
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-        $booleanEmail = comprobarEmail(con,$email);
-        $password = password_hash(htmlspecialchars($_POST["password"]), PASSWORD_DEFAULT);
+        $booleanEmail = comprobarEmail($con,$email);
+        $password = password_hash(htmlspecialchars(trim($_POST["password"])), PASSWORD_DEFAULT);
         $nombre = htmlspecialchars(trim($_POST["nombre"]));
         $apellidos = htmlspecialchars(trim($_POST["apellidos"]));
 
         if(!$email || $email===null || $booleanEmail===true || !preg_match('/\@almacen.com$/', $email)){
-            $errores[]="El email no puede estar vacio, ni contener caracteres dañinos, tiene que estar bien escrito y tiene que terminar en @almacen.com.";
+            $errores[]="El email no puede estar vacio, ni contener caracteres dañinos, tiene que estar bien escrito, no puede estar en uso y tiene que terminar en @almacen.com.";
             $campoErroresAux["email"]=true;
         }
         if(!$password || $password===null || empty($password)){
@@ -31,16 +28,20 @@ function validar(){
             $errores[]="El apellido no puede estar vacio, ni puede contener caracteres dañinos.";
             $campoErroresAux["apellido"]=true;
         }
-    }
 
-    if(empty($errores)){
-        $aux=true;
-        añadirUsuario($email, $password, $nombre, $apellidos);        
-    }else{
-        foreach($errores as $error){
-            echo $error ."<br>";
+        if(empty($errores)){
+            añadirUsuario($con, $email, $password, $nombre, $apellidos);
+            header("Location: login.php");
+        }else{
+            foreach($errores as $error){
+                echo $error ."<br>";
+            }
         }
     }
+    if(isset($_POST["inicioSesion"])){
+        header("Location: login.php");
+    }
+    cierreConexion($con);
 }
 ?>
 
@@ -52,26 +53,26 @@ function validar(){
         <title>Registro de Usuario</title>
     </head>
     <body>
-        <?php validar() ?>
+        <?php validar($con) ?>
         <header>
             <h1>Registro de Usuario</h1>
         </header>
         <main>
             <form method="POST">
                 <label for="nombre">Nombre:</label><br>
-                <input type="text" id="nombre" name="nombre" required><br><br>
+                <input type="text" id="nombre" name="nombre" ><br><br>
 
                 <label for="apellidos">Apellidos:</label><br>
-                <input type="text" id="apellidos" name="apellidos" required><br><br>
+                <input type="text" id="apellidos" name="apellidos" ><br><br>
     
                 <label for="email">Correo Electrónico:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
+                <input type="email" id="email" name="email" ><br><br>
     
                 <label for="password">Contraseña:</label><br>
-                <input type="password" id="password" name="password" required><br><br>
+                <input type="password" id="password" name="password" ><br><br>
     
-                <button type="submit">Registrarse</button> <!-- INPUT-->
-                <button type="submit">Iniciar sesion</button>
+                <input type="submit" name="registro" id="registro" value="Registrarse"/>
+                <input type="submit" name="inicioSesion" id="inicioSesion" value="Ir a iniciar sesion"/>
             </form>
         </main>
     </body>
