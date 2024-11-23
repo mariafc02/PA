@@ -11,7 +11,7 @@ function validar($con){
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
         $password = htmlspecialchars(trim($_POST["password"]));
 
-        setcookie("email", $email, time() + (30 * 24 * 60 * 60));
+        setcookie("email", $email, time() + (24 * 60 * 60));
 
         if(!$email || $email===null || !preg_match('/\@almacen.com$/', $email)){
             $errores[]="El email no puede estar vacio, ni contener caracteres dañinos, tiene que estar bien escrito y tiene que terminar en @almacen.com.";

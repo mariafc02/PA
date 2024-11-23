@@ -1,17 +1,12 @@
 <?php
 session_start();
 
-include "utilidad.php";
-$errores=[];
-
 if(!isset($_SESSION["id_usuario"])){
     header("Location: login.php");
     exit();
 }
 
-$rol = $_SESSION["id_rol"];
-
-
+$rol = (int)$_SESSION["id_rol"];
 
 ?>
 <!DOCTYPE html>
@@ -26,20 +21,22 @@ $rol = $_SESSION["id_rol"];
             <h1>Bienvenido</h1>
         </header>
         <main>
-            <h3>Aqui le mostramos las paginas a las que puede acceder:</h3>
-            <ul>
-                <?php
-                    if($rol===1){
-                        echo "<li><a href=\"usuarios.php\">Usuarios</a></li>";
-                    }elseif($rol===2 || $rol===3){
-                        echo "<li><a href=\"usuarios.php\">Usuarios</a></li>";
-                        echo "<li><a href=\"productos.php\">Productos</a></li>";
-                    }else{
-                        echo "<li>Aun no se le ha asignado un rol, mantente a la espera.</li>";
-                    }
-                ?>
-            </ul>
-
+            <section>
+                <h3>Aqui le mostramos las paginas a las que puede acceder:</h3>
+                <ul>
+                    <?php
+                        
+                        if($rol===1){
+                            echo "<li><a href=\"usuarios.php\">Usuarios</a></li>";
+                        }elseif($rol===2 || $rol===3){
+                            echo "<li><a href=\"usuarios.php\">Usuarios</a></li>";
+                            echo "<li><a href=\"productos.php\">Productos</a></li>";
+                        }else{
+                            echo "<li>Aun no se le ha asignado un rol valido, mantente a la espera.</li>";
+                        }
+                    ?>
+                </ul>
+            </section>
         </main>
     </body>
     <footer>

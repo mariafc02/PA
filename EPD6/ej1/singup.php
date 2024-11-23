@@ -31,7 +31,9 @@ function validar($con){
 
         if(empty($errores)){
             añadirUsuario($con, $email, $password, $nombre, $apellidos);
+            cierreConexion($con);
             header("Location: login.php");
+            exit();
         }else{
             foreach($errores as $error){
                 echo $error ."<br>";
@@ -39,7 +41,9 @@ function validar($con){
         }
     }
     if(isset($_POST["inicioSesion"])){
+        cierreConexion($con);
         header("Location: login.php");
+        exit();
     }
     cierreConexion($con);
 }
