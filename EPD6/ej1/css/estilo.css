@@ -1,0 +1,124 @@
+.error{
+    border: 2px solid rgb(255, 0, 0);
+    background-color: rgb(255, 162, 162);
+    color: rgb(255, 0, 0);
+}
+
+.campoErrores{
+    border: 2px dotted red;
+    border-radius: 20px;
+    background-color: rgb(255, 162, 162);
+    width: 75%;
+    margin: 5% 12.5%;
+    padding: 20px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #bbdcff;
+}
+
+header{
+    height: 50%;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+    background-color: #0056b3;
+    color: rgb(212, 255, 110);
+}
+
+header h1{
+    text-align: center;
+}
+
+header input{
+    background-color: rgb(212, 255, 110);
+    color: #0056b3;
+    border: 2px solid rgba(115, 165, 0, 0.507);
+    float: left;
+    margin: 20px 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+main, footer{
+    margin: 3%;
+}
+
+table{
+    border-collapse: collapse;
+    width: 75%;
+    margin: 20px 12.5%;
+    text-align: center;
+}
+
+table, th, td{
+    border: 2px solid black;
+}
+
+th, td{
+    padding: 10px;
+    background-color: #e4f1ff;
+}
+
+td form{
+    margin: auto 20px;
+    display: inline;
+}
+
+
+input[type="submit"]{
+    background-color: rgb(212, 255, 110);
+    color: #0056b3;
+    border: 2px solid rgba(115, 165, 0, 0.507);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    background-color: rgb(191, 223, 116);
+    color: #0056b3;
+    border: 2px solid rgba(115, 165, 0, 0.507);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input, textarea{
+    border: 1px solid rgba(115, 165, 0, 0.507);
+    background-color: rgb(212, 255, 110);
+    border-radius: 5px;
+    color: #0056b3;
+    padding: 10px 20px;
+}
+
+.index li{
+    margin-top: 40px;
+}
+
+.index a{
+    border: 2px solid rgba(115, 165, 0, 0.507);
+    background-color: rgb(212, 255, 110);
+    text-decoration: none;
+    color: #0056b3;
+    font-size: 20pt;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.index a:hover{
+    border: 2px solid rgba(115, 165, 0, 0.507);
+    background-color: rgb(191, 223, 116);
+    text-decoration: none;
+    color: #0056b3;
+    font-size: 20pt;
+    padding: 10px 20px;
+    border-radius: 5px;
+}

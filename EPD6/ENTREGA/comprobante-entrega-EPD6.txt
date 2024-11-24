@@ -1,0 +1,8 @@
+La entrega se realizó correctamente.
+Curso: GIFS701021_L1_2024-25, PROGRAMACION AVANZADA L1 (CURSO 2024-25)
+Evaluación: EPD 6: Acceso a bases de datos en PHP
+
+Fecha de entrega: 24/11/24 22:19
+Tamaño de entrega: undefined
+Remitente: Angel Perez Maestre
+Número de confirmación: 8ec03a9f151e4fce88224847673e57b9

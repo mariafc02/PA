@@ -15,13 +15,14 @@ $rol = (int)$_SESSION["id_rol"];
         <title>EPD06</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilo.css">
     </head>
     <body>
         <header>
             <h1>Bienvenido</h1>
         </header>
         <main>
-            <section>
+            <section class="index">
                 <h3>Aqui le mostramos las paginas a las que puede acceder:</h3>
                 <ul>
                     <?php
