@@ -1,0 +1,77 @@
+<!--
+    - Hay que pone los parse?
+    - Comillas de los prompt, alert y document.write
+    - variables, cuando son comunes y tal. si pueden cambiar de tipo como en php.
+-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Temperaturas</title>
+        <script type="text/javascript">
+            
+            function pedirTotalTemperaturas() {
+                let totalTemperaturas;
+                do{
+                    totalTemperaturas = parseInt(prompt("Introduce el número total de temperaturas a introducir:"));
+                    if(isNaN(totalTemperaturas) || totalTemperaturas <= 0){
+                        alert("Por favor, introduce un número válido mayor que 0.");
+                    }
+                }while(isNaN(totalTemperaturas) || totalTemperaturas <= 0);
+                return totalTemperaturas;
+            }
+
+            function temperaturaMedia(temperaturas) {
+                let suma = 0;
+                for(let i = 0; i < temperaturas.length; i++){
+                    suma += temperaturas[i];
+                }
+                return suma / temperaturas.length;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Programa de Temperaturas</h1>
+        <script type="text/javascript">
+
+            let temperaturas = [];
+
+            let totalTemperaturas = pedirTotalTemperaturas();
+
+            for(let i = 0; i < totalTemperaturas; i++){
+                let temperatura;
+                do{
+                    temperatura = parseFloat(prompt(`Introduce la temperatura ${i + 1}:`));
+                    if(isNaN(temperatura) || temperatura < -273.15){
+                        alert("Temperatura no válida, insertela de nuevo.");
+                    }
+
+                }while(isNaN(temperatura) || temperatura < -273.15);
+
+                temperaturas.push(temperatura);
+                if(temperatura > 30){
+                    alert(`La temperatura ${temperatura} es alta.`);
+                }else if(temperatura >= 20 && temperatura <= 30) {
+                    alert(`La temperatura ${temperatura} es media.`);
+                }else{
+                    alert(`La temperatura ${temperatura} es baja.`);
+                }
+            }
+
+            let maxTemperatura = Math.max(...temperaturas);
+            let minTemperatura = Math.min(...temperaturas);
+            let medTemperatura = temperaturaMedia(temperaturas);
+
+            let temperaturasOrdenAsc = [...temperaturas].sort((a, b) => a - b);
+            let temperaturasOrdenDes = [...temperaturas].sort((a, b) => b - a);
+
+            document.write("<h2>Resultados:</h2>");
+            document.write(`<p>Temperatura máxima: ${maxTemperatura}</p>`);
+            document.write(`<p>Temperatura mínima: ${minTemperatura}</p>`);
+            document.write(`<p>Temperatura media: ${medTemperatura.toFixed(2)}</p>`);
+            document.write(`<p>Temperaturas en orden ascendente: ${temperaturasOrdenAsc.join(", ")}</p>`);
+            document.write(`<p>Temperaturas en orden descendente: ${temperaturasOrdenDes.join(", ")}</p>`);
+        </script>
+    </body>
+</html>
