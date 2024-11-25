@@ -1,0 +1,76 @@
+<!--
+    - 
+    - 
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diferencia entre horas</title>
+    <script>
+        function solicitarHora(mensaje) {
+
+            let hora;
+            do {
+                hora = prompt(mensaje);
+                if (!esHoraValida(hora)) {
+                    alert("HORA INCORRECTA. Debe estar en formato hh:mm:ss.");
+                }
+            } while (!esHoraValida(hora));
+
+            return hora;
+        }
+
+        function esHoraValida(hora) {
+
+            let regexHora = /^([0-1]?[0-9]|2[0-3]):([0-5]?[0-9]):([0-5]?[0-9])$/;
+
+            return regexHora.test(hora);
+        }
+
+        function convertirHoraADate(hora) {
+
+            let [hh, mm, ss] = hora.split(':').map(Number);
+            let fecha = new Date();
+            fecha.setHours(hh, mm, ss, 0);
+            return fecha;
+        }
+
+        function calcularDiferenciaHoras(hora1Date, hora2Date) {
+
+            let diferenciaMs = hora2Date - hora1Date;
+
+            if (diferenciaMs <= 0) {
+                return "ERROR: La segunda hora introducida es anterior a la primera.";
+            }
+
+            let diferenciaSegundos = Math.floor(diferenciaMs / 1000);
+            let horas = Math.floor(diferenciaSegundos / 3600);
+            let minutos = Math.floor((diferenciaSegundos % 3600) / 60);
+            let segundos = diferenciaSegundos % 60;
+
+            return `Faltan: ${horas} horas, ${minutos} minutos y ${segundos} segundos.`;
+        }
+        </script>
+</head>
+<body>
+    <h1>Diferencia entre horas</h1>
+    <script>
+        let hora1 = solicitarHora("Introduce la primera hora en formato hh:mm:ss:");
+        alert(`Hora 1: ${hora1}`);
+        document.write(`<p>Hora 1: ${hora1}</p>`);
+
+        let hora2 = solicitarHora("Introduce la segunda hora en formato hh:mm:ss: ");
+        alert(`Hora 2: ${hora2}`);
+        document.write(`<p>Hora 2: ${hora2}</p>`);
+ 
+        let hora1Date = convertirHoraADate(hora1);
+        let hora2Date = convertirHoraADate(hora2);
+        
+        let diferencia = calcularDiferenciaHoras(hora1Date, hora2Date);
+        alert(`${diferencia}`);
+        document.write(`<p>${diferencia}</p>`);
+    </script>
+</body>
+</html>

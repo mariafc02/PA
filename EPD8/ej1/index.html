@@ -67,11 +67,11 @@
             let temperaturasOrdenDes = [...temperaturas].sort((a, b) => b - a);
 
             document.write("<h2>Resultados:</h2>");
-            document.write(`<p>Temperatura máxima: ${maxTemperatura}</p>`);
-            document.write(`<p>Temperatura mínima: ${minTemperatura}</p>`);
-            document.write(`<p>Temperatura media: ${medTemperatura.toFixed(2)}</p>`);
-            document.write(`<p>Temperaturas en orden ascendente: ${temperaturasOrdenAsc.join(", ")}</p>`);
-            document.write(`<p>Temperaturas en orden descendente: ${temperaturasOrdenDes.join(", ")}</p>`);
+            document.write(`<p><strong>Temperatura máxima:</strong> ${maxTemperatura}</p>`);
+            document.write(`<p><strong>Temperatura mínima:</strong> ${minTemperatura}</p>`);
+            document.write(`<p><strong>Temperatura media:</strong> ${medTemperatura.toFixed(2)}</p>`);
+            document.write(`<p><strong>Temperaturas en orden ascendente:</strong> ${temperaturasOrdenAsc.join(", ")}</p>`);
+            document.write(`<p><strong>Temperaturas en orden descendente:</strong> ${temperaturasOrdenDes.join(", ")}</p>`);
         </script>
     </body>
 </html>
