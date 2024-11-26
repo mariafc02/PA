@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Cadena</title>
+    <script>
+        function modificarCadena(cadenaFuncion){
+            
+            if(!cadenaFuncion){
+                alert("No ingresaste ninguna cadena.");
+                return;
+            }
+            
+            let resultado = "";
+            let char;
+            let posicion;
+            
+            for(let i = 0; i < cadenaFuncion.length; i++){
+                char = cadenaFuncion.charAt(i);
+                posicion = i + 1; // Posiciones humanas (1-indexadas)
+                
+                if(posicion % 2 === 0 && posicion % 5 === 0){
+                    // Múltiplos de 5: reemplazar por "#"
+                    resultado += char.toLowerCase();
+                }else if(posicion % 5 === 0){
+                    // Múltiplos de 2 y 5 a la vez: convertir a minúscula.
+                    resultado += "#";
+                }else if(posicion % 2 === 0){
+                    // Posiciones pares (1-indexado): convertir a mayúscula
+                    resultado += char.toUpperCase();
+                }else{
+                    resultado += char;
+                }
+            }
+            
+            return resultado;
+        }
+        </script>
+</head>
+<body>
+    <script>
+
+        let cadena;
+
+        do{
+            cadena = prompt("Introduce una cadena de texto:");
+            if(!cadena){
+                alert("La cadena no puede estar vacia.");
+            }
+        }while(!cadena);
+
+        let cadenaModificada=modificarCadena(cadena);
+
+        alert(`Cadena modificada: ${cadenaModificada}`);
+        document.write("<h1>Convertidor de cadenas:</h1>");
+        document.write(`<p>Cadena inicial: ${cadena}</p>`);
+        document.write(`<p>Cadena modificada: ${cadenaModificada}</p>`);
+
+    </script>
+</body>
+</html>
