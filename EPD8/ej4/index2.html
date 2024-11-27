@@ -1,0 +1,43 @@
+<!DOCTYPE html><!-- Copy to Clipboard -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copiar al Portapapeles</title>
+    <style>
+        #text {
+            width: 300px;
+            margin: 20px auto;
+            display: block;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="text" value="Texto para copiar al portapapeles">
+    <button onclick="copyToClipboard()">Copiar</button>
+
+    <script>
+        function copyToClipboard() {
+            const input = document.getElementById("text");
+            input.select();
+            input.setSelectionRange(0, 99999); // Para dispositivos móviles
+            navigator.clipboard.writeText(input.value)
+                .then(() => {
+                    alert("Texto copiado al portapapeles: " + input.value);
+                })
+                .catch(err => {
+                    alert("Error al copiar: " + err);
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html><!-- Detect if the user is scrolled to the bottom -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll al Final</title>
+    <style>
+        body {
+            height: 2000px;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Desplázate hacia abajo para detectar el final</h1>
+    <script>
+        window.onscroll = function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                alert("¡Has llegado al final de la página!");
+            }
+        };
+    </script>
+</body>
+</html>

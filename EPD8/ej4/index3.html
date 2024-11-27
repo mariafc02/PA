@@ -1,0 +1,38 @@
+<!DOCTYPE html><!-- Toggle a class -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternar Clase</title>
+    <style>
+        .caja {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 20px auto;
+            transition: background-color 0.3s ease;
+        }
+        .activo {
+            background-color: green;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="caja" class="caja"></div>
+    <button onclick="toggleClass()">Alternar Clase</button>
+
+    <script>
+        function toggleClass() {
+            const caja = document.getElementById("caja");
+            caja.classList.toggle("activo");
+        }
+    </script>
+</body>
+</html>

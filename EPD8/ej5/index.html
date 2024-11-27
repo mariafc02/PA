@@ -16,6 +16,14 @@
             return mensaje;
         }
 
+        function mostrarInventarioBr(){
+            let mensajeBr = "";
+            for(let i = 0; i < inventario.length; i++){
+                mensajeBr += `${inventario[i][0]}: ${inventario[i][1]} € - ${inventario[i][2]} unidades<br>`;
+            }
+            return mensajeBr;
+        }
+
         function agregarProducto(){
             
             let nombre;
@@ -46,13 +54,16 @@
             document.write(`<p>Ingrese la cantidad disponible: ${cantidad}</p>`);
 
             inventario.push([nombre, precio, cantidad]);
-            alert(`Producto "${nombre}" agregado exitosamente.`);
+            alert(`Producto agregado con exito.`);
             document.write("<p><br>Producto agregado con exito.</p>");
 
-            let inventarioAñadir="Inventario Actualizado:"+mostrarInventario();
+            let inventarioAñadir="Inventario Actualizado:\n"+mostrarInventario();
+            alert(`${inventarioAñadir}`);
+            let inventarioAñadirBr="Inventario Actualizado:<br>"+mostrarInventarioBr();
+            document.write(`<p><br>${inventarioAñadirBr}</p>`);
         }
 
-        function actualizarInventario(){ 
+        function actualizarInventario(){
             let nombreActualizar;
             do{
                 nombreActualizar = prompt("Ingrese el nombre del producto a actualizar:");
@@ -62,42 +73,42 @@
             }while(!nombreActualizar);
             document.write(`<p>Ingrese el nombre del producto a actualizar: ${nombreActualizar}`);
             
-            let i = 0;
+            let j = 0;
             let aux = false;
-            while(i<inventario.length && !aux){
-                if(inventario[i][0].toLowerCase() === nombreActualizar.toLowerCase()){
+            while(j<inventario.length){
+                if(inventario[j][0].toLowerCase() === nombreActualizar.toLowerCase()){
+                    aux=true;
+
                     let nuevaCantidad;
                     do{
-                        nuevaCantidad = parseInt(prompt(`Introduce la nueva cantidad nueva cantidad para el producto "${nombre}":`));
+                        nuevaCantidad = parseInt(prompt(`Introduce la nueva cantidad nueva cantidad para el producto "${nombreActualizar}":`));
                         if(isNaN(nuevaCantidad) || nuevaCantidad < 0){
                             alert("La cantidad debe ser un número válido mayor o igual a 0.");
                         }
-                    }while(isNaN(nuevaCantidad) || nuevaCantidad < 0);------------------------------------------
+                    }while(isNaN(nuevaCantidad) || nuevaCantidad < 0);
+                    document.write(`<p>Introduce la nueva cantidad nueva cantidad para el producto "${nombreActualizar}": ${nuevaCantidad}</p>`);
                     
-                    inventario[i][2] = nuevaCantidad;
-                    alert(`La cantidad del producto "${nombre}" ha sido actualizada.`);
-                    productoEncontrado = true;
+                    inventario[j][2] = nuevaCantidad;
+                    alert(`La cantidad del producto "${nombreActualizar}" ha sido actualizada.`);
+                    document.write(`<p>La cantidad del producto "${nombreActualizar}" ha sido actualizada.</p>`);
                     break;
                 }
-                i++;
+                j++;
             }
-            for(let i = 0; i < inventario.length; i++){
-                if(inventario[i][0].toLowerCase() === nombre.toLowerCase()){
-                    let nuevaCantidad = parseInt(prompt(`Introduce la nueva cantidad disponible para "${nombre}":`));
-                    if(isNaN(nuevaCantidad) || nuevaCantidad < 0){
-                        alert("La cantidad debe ser un número válido mayor o igual a 0.");
-                        return;
-                    }
-                    inventario[i][2] = nuevaCantidad;
-                    alert(`La cantidad del producto "${nombre}" ha sido actualizada.`);
-                    productoEncontrado = true;
-                    break;
-                }
+            if(!aux){
+                alert(`El producto "${nombreActualizar}" no se encuentra en el inventario.`);
+                document.write(`<p>El producto "${nombreActualizar}" no se encuentra en el inventario</p>`);
+                let inventarioNoMdf = "Inventario Actual:\n"+mostrarInventario();
+                alert(`${inventarioNoMdf}`);
+                let inventarioNoMdfBr = "Inventario Actual:<br>"+mostrarInventarioBr();
+                document.write(`<p><br>${inventarioNoMdfBr}</p>`);
+            }else{
+                let inventarioMdf = "Inventario Actualizado:\n"+mostrarInventario();
+                alert(`${inventarioMdf}`);
+                let inventarioMdfBr = "Inventario Actualizado:<br>"+mostrarInventarioBr();
+                document.write(`<p><br>${inventarioMdfBr}</p>`);
             }
 
-            if(!productoEncontrado){
-                alert(`El producto "${nombre}" no se encuentra en el inventario.`);
-            }
         }
         </script>
 </head>
@@ -105,19 +116,23 @@
     <h1>Gestión de Inventario</h1>
     <script>
         let opcion;
-        do{
-            let inventarioInicial="Inventario Inicial:\n"+mostrarInventario();
+        
+        let inventarioInicial="Inventario Inicial:\n"+mostrarInventario();
+        let inventarioInicialBr="Inventario Inicial:<br>"+mostrarInventarioBr();
 
-            alert(`${inventarioInicial}`);
-            document.write(`${inventarioInicial}`)
+        alert(`${inventarioInicial}`);
+        document.write(`${inventarioInicialBr}`)
+        do{
 
             opcion = parseInt(prompt("¿Que operacion desea realizar?\n1) Mostrar inventario\n2) Agregar producto\n3) Actualizar inventario\n4) Salir"));
-            document.write("<p>¿Que operacion desea realizar?\n1) Mostrar inventario\n2) Agregar producto\n3) Actualizar inventario\n4) Salir</p>");
+            document.write("<p>¿Que operacion desea realizar?<br>1) Mostrar inventario<br>2) Agregar producto<br>3) Actualizar inventario<br>4) Salir</p>");
         
             if(opcion === 1){
                 document.write(`<p><br>Opcion: ${opcion}</p>`);
                 let inventarioActual="Inventario Actual:\n"+mostrarInventario();
-                document.write(`<p><br>${inventarioActual}</p>`);
+                let inventarioActualBr="Inventario Actual:<br>"+mostrarInventarioBr();
+                alert(`${inventarioActual}`);
+                document.write(`<p><br>${inventarioActualBr}</p>`);
             }else if(opcion === 2){
                 document.write(`<p><br>Opcion: ${opcion}</p>`);
                 agregarProducto();
@@ -128,7 +143,7 @@
                 document.write(`<p><br>Opcion: ${opcion}</p>`);
                 alert("Saliendo...");
                 document.write("<p><br>Saliendo...</p>");
-                let inventarioFinal="Inventario Final:\n"+mostrarInventario();
+                let inventarioFinal="Inventario Final:<br>"+mostrarInventario();
                 document.write(`<p><br>${inventarioFinal}</p>`);
             }else{
                 alert("Opcion invalida. Selecciona una opcion entre 1 y 4.");

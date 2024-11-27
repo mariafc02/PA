@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de URL GET</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Analizador de Enlaces GET</h1>
+    <p>Introduce una URL válida con parámetros en el siguiente formato:</p>
+    <p><code>https://IP:PUERTO/RUTA?p1=VALOR1&p2=VALOR2&op=OPERACION</code></p>
+    <button onclick="procesarUrl()">Analizar URL</button>
+    <div id="resultado"></div>
+
+    <script>
+        function procesarUrl() {
+            // Pedimos al usuario una URL
+            let url = prompt("Introduce una URL:");
+            if (!url) {
+                alert("No se ingresó ninguna URL.");
+                return;
+            }
+
+            // Mostramos la URL original
+            let resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = `<p><strong>Petición original:</strong> ${url}</p>`;
+
+            // Extraemos los parámetros de la URL
+
+            // Dividimos la URL en base al carácter `?` para extraer parámetros
+            let urlObj = new URL(url);
+            let params = new URLSearchParams(urlObj.search);
+
+            // Obtenemos valores específicos
+            let p1 = parseFloat(params.get("p1"));
+            let p2 = parseFloat(params.get("p2"));
+            let op = params.get("op");
+
+            if (isNaN(p1) || isNaN(p2) || !op) {
+                throw new Error("Los parámetros no son válidos.");
+            }
+
+            // Realizamos la operación
+            let total;
+            switch (op) {
+                case "sumar":
+                    total = p1 + p2;
+                    break;
+                case "restar":
+                    total = p1 - p2;
+                    break;
+                case "multiplicar":
+                    total = p1 * p2;
+                    break;
+                default:
+                    throw new Error("Operación no válida. Usa 'sumar', 'restar' o 'multiplicar'.");
+            }
+
+            // Mostramos los resultados en una tabla
+            resultadoDiv.innerHTML += `
+                    <h2>Parámetros:</h2>
+                    <table>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Valor</th>
+                        </tr>
+                        <tr>
+                            <td>p1</td>
+                            <td>${p1}</td>
+                        </tr>
+                        <tr>
+                            <td>p2</td>
+                            <td>${p2}</td>
+                        </tr>
+                        <tr>
+                            <td>op</td>
+                            <td>${op}</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td>${total.toFixed(2)}</td>
+                        </tr>
+                    </table>
+                `;
+        }
+    </script>
+</body>
+
+</html>
