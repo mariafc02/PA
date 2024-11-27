@@ -18,19 +18,20 @@
             
             for(let i = 0; i < cadenaFuncion.length; i++){
                 char = cadenaFuncion.charAt(i);
-                posicion = i + 1; // Posiciones humanas (1-indexadas)
+                posicion = i + 1;
                 
                 if(posicion % 2 === 0 && posicion % 5 === 0){
-                    // Múltiplos de 5: reemplazar por "#"
                     resultado += char.toLowerCase();
+
                 }else if(posicion % 5 === 0){
-                    // Múltiplos de 2 y 5 a la vez: convertir a minúscula.
                     resultado += "#";
+
                 }else if(posicion % 2 === 0){
-                    // Posiciones pares (1-indexado): convertir a mayúscula
                     resultado += char.toUpperCase();
+
                 }else{
                     resultado += char;
+                
                 }
             }
             

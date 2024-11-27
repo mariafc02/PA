@@ -116,6 +116,7 @@
     <h1>Gestión de Inventario</h1>
     <script>
         let opcion;
+        let auxBucle=false;
         
         let inventarioInicial="Inventario Inicial:\n"+mostrarInventario();
         let inventarioInicialBr="Inventario Inicial:<br>"+mostrarInventarioBr();
@@ -133,22 +134,35 @@
                 let inventarioActualBr="Inventario Actual:<br>"+mostrarInventarioBr();
                 alert(`${inventarioActual}`);
                 document.write(`<p><br>${inventarioActualBr}</p>`);
+                auxBucle=true;
+
             }else if(opcion === 2){
                 document.write(`<p><br>Opcion: ${opcion}</p>`);
                 agregarProducto();
+                auxBucle=true;
+
             }else if(opcion === 3){
                 document.write(`<p><br>Opcion: ${opcion}</p>`);
                 actualizarInventario();
+                auxBucle=true;
+
             }else if(opcion === 4){
                 document.write(`<p><br>Opcion: ${opcion}</p>`);
                 alert("Saliendo...");
                 document.write("<p><br>Saliendo...</p>");
-                let inventarioFinal="Inventario Final:<br>"+mostrarInventario();
-                document.write(`<p><br>${inventarioFinal}</p>`);
+                let inventarioFinal="Inventario Final:\n"+mostrarInventario();
+                alert(`${inventarioFinal}`);
+                let inventarioFinalBr="Inventario Final:<br>"+mostrarInventarioBr();
+                document.write(`<p><br>${inventarioFinalBr}</p>`);
+                auxBucle=true;
+
             }else{
                 alert("Opcion invalida. Selecciona una opcion entre 1 y 4.");
+                document.write(`<p>Opcion invalida. Selecciona una opcion entre 1 y 4.</p>`);
+                auxBucle=true;
+
             }
-        }while (opcion !== 4);
+        }while(opcion !== 4 && !auxBucle);
 
     </script>
 </body>
