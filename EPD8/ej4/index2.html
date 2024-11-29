@@ -1,43 +1,57 @@
-<!DOCTYPE html><!-- Copy to Clipboard -->
+<!DOCTYPE html><!-- How To Generate a Random Color in JavaScript 
+                    https://css-tricks.com/snippets/javascript/random-hex-color/-->
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copiar al Portapapeles</title>
-    <style>
-        #text {
-            width: 300px;
-            margin: 20px auto;
-            display: block;
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <input type="text" id="text" value="Texto para copiar al portapapeles">
-    <button onclick="copyToClipboard()">Copiar</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Generar color aleatorio</title>
+        <style>
+            body{
+                height: 100%;
+                margin: 0;
+                padding: 1rem;
+                display: grid;
+                place-items: center;
+                font-family: system-ui;
+            }
 
-    <script>
-        function copyToClipboard() {
-            const input = document.getElementById("text");
-            input.select();
-            input.setSelectionRange(0, 99999); // Para dispositivos móviles
-            navigator.clipboard.writeText(input.value)
-                .then(() => {
-                    alert("Texto copiado al portapapeles: " + input.value);
-                })
-                .catch(err => {
-                    alert("Error al copiar: " + err);
-                });
-        }
+            main{
+                margin-top: 20%;
+                background-color: white;
+                padding: 1rem 2rem;
+                text-align: center;
+            }
+
+            p{
+                display: block;
+                padding: 1rem;
+                font-size: 1rem;
+                font-weight: normal;
+                font-family: monospace;
+            }
+
+            #prueba{
+                border: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <form action="index4.html">
+                <textarea name="prueba" id="prueba"></textarea><br>
+                <input type="submit">
+                <p id="color"></p>
+            </form>
+        </main>
+    </body>
+    <script type="text/javascript">
+        let randomColor1 = Math.floor(Math.random()*16777215).toString(16);
+        let randomColor2 = Math.floor(Math.random()*16777215).toString(16);
+        let randomColor3 = Math.floor(Math.random()*16777215).toString(16);
+        document.body.style.backgroundColor="#"+randomColor1;
+        document.getElementById('prueba').style.backgroundColor="#"+randomColor3;
+        document.getElementById('prueba').innerHTML="#"+randomColor3;
+        document.getElementById('color').innerHTML="#"+randomColor1;
+        document.getElementById('color').style.border="5px solid #"+randomColor2
     </script>
-</body>
 </html>

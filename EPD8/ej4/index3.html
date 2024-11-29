@@ -1,38 +1,39 @@
-<!DOCTYPE html><!-- Toggle a class -->
+<!DOCTYPE html><!-- Input with Disappearing Background Image
+                    https://css-tricks.com/snippets/javascript/input-with-disappearing-background-image/ -->
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alternar Clase</title>
-    <style>
-        .caja {
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            margin: 20px auto;
-            transition: background-color 0.3s ease;
-        }
-        .activo {
-            background-color: green;
-        }
-        button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div id="caja" class="caja"></div>
-    <button onclick="toggleClass()">Alternar Clase</button>
-
-    <script>
-        function toggleClass() {
-            const caja = document.getElementById("caja");
-            caja.classList.toggle("activo");
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cambio fondo input</title>
+        <style>
+            input[type="text"]{
+                height: 131px;
+                width: 600px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Cambio del fondo del imput</h1>
+        <form>
+            <label for="texto">Escribe algo:</label>
+            <input type="text" id="texto" />
+            <input type="submit" value="Enviar"/>
+        </form>
+    </body>
+    <script type="text/javascript">
+        (function () {
+            var name = document.getElementById('texto');
+            var view = function () {
+                if (name.value == '') {
+                    name.style.background = '#FFFFFF url(img/cargando.jpg)';
+                }
+            };
+            var unview = function () {
+                name.style.background = '#ffffff';
+            };
+            name.onfocus = unview;
+            name.onblur = view;
+            view();
+        })();
     </script>
-</body>
 </html>

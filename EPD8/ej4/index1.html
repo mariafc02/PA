@@ -1,28 +1,38 @@
-<!DOCTYPE html><!-- Detect if the user is scrolled to the bottom -->
+<!DOCTYPE html><!-- Toggle (Show/Hide) Element 
+                    https://css-tricks.com/snippets/javascript/showhide-element/-->
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scroll al Final</title>
-    <style>
-        body {
-            height: 2000px;
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 50px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Desplázate hacia abajo para detectar el final</h1>
-    <script>
-        window.onscroll = function() {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                alert("¡Has llegado al final de la página!");
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Show or Hide</title>
+        <style>
+            #adivina, #multiplicar, #b, #c{
+                display: block;
             }
-        };
-    </script>
-</body>
+        </style>
+        <script type="text/javascript">
+            function toggle_visibility(id) {
+                id.forEach(element => {
+                    var e = document.getElementById(element);
+                    if(e.style.display === 'none'){
+                        e.style.display = 'block';
+                    }else{
+                        e.style.display = 'none';
+                    }
+                });
+                
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ahora me ves, ahora no me ves...</h1>
+        <p id="adivina">Adivina si</p>
+        <p>el resultado</p>
+        <p id="multiplicar">de multiplicar 5x5</p>
+        <p>es</p>
+        <p>A.- 25</p>
+        <p id="b">B.- 10</p>
+        <p id="c">C.- 15</p>
+        <input type="submit" onclick="toggle_visibility(['adivina','multiplicar','b','c'])" value="Click aqui para revelar el menaje secreto">
+    </body>
 </html>
