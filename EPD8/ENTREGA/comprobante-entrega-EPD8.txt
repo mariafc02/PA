@@ -1,0 +1,8 @@
+La entrega se realizó correctamente.
+Curso: GIFS701021_L1_2024-25, PROGRAMACION AVANZADA L1 (CURSO 2024-25)
+Evaluación: EPD 8: JavaScript Básico
+
+Fecha de entrega: 1/12/24 19:26
+Tamaño de entrega: undefined
+Remitente: Angel Perez Maestre
+Número de confirmación: fd116a22a02c46c5a620cd633c40e2e1
