@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Adivina el numero</title>
+        <script type="text/javascript">
+
+            function iniciarJuego(){
+                numeroAleatorio = Math.floor(Math.random() * 10) + 1;        
+                
+                tiempo = 10;
+                temporizador.textContent = "Tiempo restante: 10s";
+                mensaje.textContent = "";
+                numero.value = "";
+                numero.disabled = false;
+                comprobar.disabled = true;
+                
+                detenerTemporizadores();
+
+                intervalo = setInterval(actualizarTemporizador, 1000);
+                timeout = setTimeout(tiempoAgotado, 10000);
+            }
+
+            function detenerTemporizadores(){
+                clearInterval(intervalo);
+                clearTimeout(timeout);
+            }
+            
+            function actualizarTemporizador(){
+                tiempo--;
+                temporizador.textContent = `Tiempo restante: ${tiempo}s`;
+            }
+            
+            function tiempoAgotado(){
+                detenerTemporizadores();
+                mensaje.textContent = `Se ha agotado el tiempo, el numero era ${numeroAleatorio}`;
+                numero.disabled = true;
+                comprobar.disabled = true;
+            }
+
+            function comprobarRespuesta(){
+                let valor = parseInt(numero.value, 10);
+                if(valor === numeroAleatorio){
+                    detenerTemporizadores();
+                    mensaje.textContent = "Has acertado el numero.";
+                    numero.disabled = true;
+                    comprobar.disabled = true;
+                }else if(valor < numeroAleatorio){
+                    mensaje.textContent = "El numero es mayor.";
+                }else{
+                    mensaje.textContent = "El numero es menor.";
+                }
+            }
+            
+            function numeroListener(){
+                if(numero.value === "" || isNaN(numero.value) || numero.value < 1 || numero.value > 10){
+                    comprobar.disabled = true;
+                }else{
+                    comprobar.disabled = false;
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <main>
+            <h1>Juego de adivinar el numero</h1>
+            <p>Adivina un numero entre 1 y 10</p>
+            <form>
+                <input type="number" id="numero" min="1" max="10" step="1" disabled>
+                <input type="button" id="comprobar" value="Comprobar" disabled>
+                <input type="button" id="iniciar" value="Iniciar juego">
+            </form>
+            <p id="temporizador"></p>
+            <p id="mensaje"></p>
+        </main>
+
+        <script type="text/javascript">
+            let numeroAleatorio;
+            let tiempo;
+            let intervalo;
+            let timeout;
+
+            let numero = document.getElementById("numero");
+            let comprobar = document.getElementById("comprobar");
+            let iniciar = document.getElementById("iniciar");
+            let temporizador = document.getElementById("temporizador");
+            let mensaje = document.getElementById("mensaje");
+            
+            numero.addEventListener("input", numeroListener);
+
+            iniciar.addEventListener("click", iniciarJuego);
+            comprobar.addEventListener("click", comprobarRespuesta);
+        </script>
+    </body>
+</html>

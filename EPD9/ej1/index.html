@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Formulario</title>
         <style>      
-            #errorNombre, #errorEmail, #errorPassword {
+            #errorNombre, #errorEmail, #errorPassword{
                 color: red;
                 margin-top: 5px;
             }
       
-            #errores {
+            #errores{
                 color: red;
                 font-weight: bold;
                 margin-top: 20px;
@@ -18,58 +18,66 @@
         </style>
     </head>
     <body>
-        <script>
-            function validar(){
-                let hasErrors = false;
+        <script type="text/javascript">
 
-                let nombre = document.getElementById("nombre").value.trim();
-                if (!nombre) {
+            function validarNombre(campo){
+                if(!campo.value){
                     document.getElementById("errorNombre").textContent = "El nombre no puede estar vacio.";
-                    hasErrors = true;
+                    return false;
                 }else{    
                     document.getElementById("errorNombre").textContent = "";
-                }
-
-                let email = document.getElementById("email").value.trim();
-                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    document.getElementById("errorEmail").textContent = "El correo tiene que ser valido.";
-                    hasErrors = true;
-                }else{
-                    document.getElementById("errorEmail").textContent = "";
-                }
-
-                let password = document.getElementById("password").value;
-                if (password.length < 8) {
-                    document.getElementById("errorPassword").textContent = "La contraseña tiene que tener almenos 8 caracteres.";
-                    hasErrors = true;
-                }else{    
-                    document.getElementById("errorPassword").textContent = "";
-                }
-
-                if (hasErrors) {
-                    document.getElementById("errores").textContent = "El formulario contiene errores.";
-                } else {
-                    document.getElementById("errores").textContent = "";
-                    alert("Formulario enviado.");
-                    document.getElementById("formulario").submit();
+                    return true;
                 }
             }
+
+            function validarEmail(campo){
+                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(!emailRegex.test(campo.value)){
+                    document.getElementById("errorEmail").textContent = "El correo tiene que ser valido.";
+                    return false;
+                }else{
+                    document.getElementById("errorEmail").textContent = "";
+                    return true;
+                }
+            }
+
+            function validarPassword(campo){
+                if(campo.value.length < 8){
+                    document.getElementById("errorPassword").textContent = "La contraseña tiene que tener al menos 8 caracteres.";
+                    return false;
+                }else{    
+                    document.getElementById("errorPassword").textContent = "";
+                    return true;
+                }
+            }
+
+            function validarFormulario(){
+                let valido = validarNombre(document.getElementById("nombre")) & validarEmail(document.getElementById("email")) & validarPassword(document.getElementById("password"));
+                if(!valido){
+                    document.getElementById("errores").textContent = "El formulario contiene errores.";
+                    return false;
+                }else{
+                    document.getElementById("errores").textContent = "";
+                    alert("Formulario enviado.");
+                    return true;
+                }
+            }
+            
         </script>
-        <form id="formulario" method="GET">
+        <form method="GET" onsubmit="return validarFormulario()">
             <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre">
+            <input type="text" id="nombre" name="nombre" onchange="validarNombre(this)">
             <p id="errorNombre"></p><br>
           
             <label for="email">Correo Electrónico:</label><br>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" onchange="validarEmail(this)">
             <p id="errorEmail"></p><br>
 
             <label for="password">Contraseña:</label><br>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" onchange="validarPassword(this)">
             <p id="errorPassword"></p><br>
 
-            <input type="button" name="enviar" id="enviar" value="Enviar" onclick="validar()">
+            <input type="submit" name="enviar" id="enviar" value="Enviar">
         </form>
         <h3 id="errores"></h3>
     </body>

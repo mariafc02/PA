@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cuadrado magico</title>
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+
+            td{
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                text-align: center;
+                font-size: 30pt;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .seleccionada{
+                background-color: rgb(180, 236, 255);
+            }
+
+            .vacia{
+                background-color: rgb(255, 128, 128);
+            }
+
+            .correcto{
+                background-color: gold;
+            }
+
+        </style>
+        <script type="text/javascript">
+            function clickCelda(event){
+                if(celdaActiva){
+                    if(!celdaActiva.textContent){
+                        celdaActiva.classList.add("vacia");
+                    }
+                    celdaActiva.classList.remove("seleccionada");
+                }
+            
+                event.target.classList.remove("vacia");
+                event.target.classList.add("seleccionada");
+                celdaActiva = event.target;
+            }
+
+            function presionTecla(event){
+                let key = event.key;
+            
+                if(key >= "0" && key <= "9"){
+                    celdaActiva.textContent = key;
+                    celdaActiva.classList.remove("vacia");
+                    mensaje.textContent = "";
+                }else{
+                    mensaje.textContent = "No es un numero entre 0 y 9.";
+                }
+            }
+            
+            function verificarEstado(){
+                let matriz = [];
+                let completo = true;
+            
+                for(let i = 0; i < 3; i++){
+                    matriz[i] = [];
+                    for(let j = 0; j < 3; j++){
+                        let celda = tabla.rows[i].cells[j];
+                        let valor = parseInt(celda.textContent, 10);
+                        if(isNaN(valor)){
+                            completo = false;
+                            celda.classList.add("vacia");
+                            matriz[i][j] = 0;
+                        }else{
+                            celda.classList.remove("vacia");
+                            matriz[i][j] = valor;
+                        }
+                    }
+                }
+            
+                if(completo){
+                    if(esMagico(matriz)){
+                        mensaje.textContent = "El cuadro es magico.";
+                        celdas.forEach(celdaAux => {
+                            celdaAux.classList.add("correcto")});
+
+                        reiniciarJuego();
+                    }else{
+                        mensaje.textContent = "No es un cuadrado mágico.";
+                    }
+                }
+            }
+            
+            function esMagico(matriz){
+                let sumaAux = 0;
+                for(let i=0 ; i < 3 ; i++){
+                    sumaAux += matriz[i][0];
+                }
+            
+                for(let i=0 ; i < 3 ; i++){
+                    let sumaFila=0;
+                    for(let j=0 ; j < 3 ; j++){
+                        sumaFila += matriz[i][j];
+                    }
+                    if(sumaFila !== sumaAux){
+                        return false;
+                    }
+                }
+            
+                for(let i=0 ; i < 3 ; i++){
+                    let sumaColumna = 0;
+                    for(let j=0 ; j < 3 ; j++){
+                        sumaColumna += matriz[j][i];
+                    }
+                    if(sumaColumna !== sumaAux){
+                        return false;
+                    }
+                }
+            
+                let sumaDiagonal1 = matriz[0][0] + matriz[1][1] + matriz[2][2];
+                let sumaDiagonal2 = matriz[0][2] + matriz[1][1] + matriz[2][0];
+            
+                if(sumaDiagonal1 !== sumaAux || sumaDiagonal2 !== sumaAux){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+            
+            function reiniciarJuego(){
+                setTimeout(reiniciarCeldas, 3000);
+            }
+            
+            function reiniciarCeldas(){
+                celdas.forEach(celdaAux => {
+                    celdaAux.textContent = "";
+                    celdaAux.classList.remove("correcto");
+                    mensaje.textContent = "";
+                });
+                mensaje.textContent = "";
+            }
+
+        </script>
+    </head>
+    <body>
+        <main>
+            <h1>Juego del cuadrado Magico</h1>
+            <p>Rellena la tabla para formar un cuadrado magico.</p>
+
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="seleccionada"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            
+            <p id="mensaje"></p>
+        </main>
+
+        <script type="text/javascript">
+
+            let tabla = document.querySelector("table");
+            let celdas = tabla.querySelectorAll("td");
+            let celdaActiva = document.querySelector(".seleccionada");
+            let mensaje = document.getElementById("mensaje");
+
+            celdas.forEach(celdaAux => {
+                celdaAux.addEventListener("click", clickCelda);
+            });
+
+            document.addEventListener("keydown", presionTecla);
+
+            document.addEventListener("keyup", verificarEstado);
+
+        </script>
+    </body>
+</html>

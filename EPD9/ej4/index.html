@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Adivinar el Color</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #colorMostrado {
+            width: 200px;
+            height: 100px;
+            margin: 20px auto;
+            border: 2px solid black;
+        }
+        #opciones {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        #opciones li {
+            width: 60px;
+            height: 60px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Juego de Adivinar el Color</h1>
+    <p>Haz clic en el color correcto de la lista de opciones.</p>
+    <div id="colorMostrado"></div>
+    <ul id="opciones"></ul>
+    <p id="resultado"></p>
+
+    <script>
+        // Array de colores
+        const colores = ["red", "green", "blue", "yellow", "purple", "orange", "pink", "brown"];
+
+        let colorCorrecto;
+
+        // Inicia el juego
+        function iniciarJuego() {
+            reiniciarJuego();
+            mostrarColorAleatorio();
+            crearOpcionesDeColor();
+        }
+
+        // Reinicia los resultados y limpia el área de opciones
+        function reiniciarJuego() {
+            const resultado = document.getElementById("resultado");
+            resultado.textContent = "";
+            const opciones = document.getElementById("opciones");
+            opciones.innerHTML = "";
+        }
+
+        // Muestra un color aleatorio
+        function mostrarColorAleatorio() {
+            const colorMostrado = document.getElementById("colorMostrado");
+            const indiceAleatorio = Math.floor(Math.random() * colores.length);
+            colorCorrecto = colores[indiceAleatorio];
+            colorMostrado.style.backgroundColor = colorCorrecto;
+        }
+
+        // Crea las opciones de color
+        function crearOpcionesDeColor() {
+            const opciones = document.getElementById("opciones");
+            colores.forEach(color => {
+                const li = document.createElement("li");
+                li.style.backgroundColor = color;
+                li.addEventListener("click", verificarSeleccion);
+                opciones.appendChild(li);
+            });
+        }
+
+        // Verifica la selección del usuario
+        function verificarSeleccion(event) {
+            const colorSeleccionado = event.target.style.backgroundColor;
+            const resultado = document.getElementById("resultado");
+
+            if (colorSeleccionado === colorCorrecto) {
+                resultado.textContent = "¡Correcto! Ese es el color.";
+                resultado.style.color = "green";
+            } else {
+                resultado.textContent = "¡Incorrecto! Inténtalo de nuevo.";
+                resultado.style.color = "red";
+            }
+
+            // Reiniciar el juego después de 2 segundos
+            setTimeout(iniciarJuego, 2000);
+        }
+
+        // Iniciar el juego cuando la página cargue
+        document.addEventListener("DOMContentLoaded", iniciarJuego);
+    </script>
+</body>
+</html>
