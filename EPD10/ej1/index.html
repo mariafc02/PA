@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Encuentra la Pareja con jQuery</title>
+    <style>
+        #tablero{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .carta{
+            width: 80px;
+            height: 120px;
+            margin: 5px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30pt;
+            cursor: pointer;
+            border: 2px solid #444;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .carta.abierta, .carta.encontrada{
+            background-color: #8BC34A;
+            cursor: default;
+        }
+
+        h1, p{
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Juego de Encuentra la Pareja</h1>
+    <div id="tablero"></div>
+    <p>Movimientos: <span id="contadorMovimientos">0</span></p>
+    <p id="mensaje"></p>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let cartas = ["A", "A", "B", "B", "C", "C", "D", "D", "E", "E", "F", "F"];
+            let cartasAbiertas = [];
+            let movimientos = 0;
+            let parejasEncontradas = 0;
+
+            function iniciarJuego(){
+                mezclarCartas();
+                mostrarTablero();
+                asignarEventos();
+            }
+
+            function mezclarCartas(){
+                 for(let i = cartas.length - 1; i > 0; i--){
+                    let j = Math.floor(Math.random() * (i + 1));
+                    [cartas[i], cartas[j]] = [cartas[j], cartas[i]];
+                }
+            }
+
+            function mostrarTablero(){
+                let tablero = $("#tablero");
+                tablero.empty();
+                cartas.forEach((carta, index) => {
+                    let cartaElemento = $(`<div class="carta" data-index="${index}"></div>`);
+                    tablero.append(cartaElemento);
+                });
+            }
+
+            function asignarEventos(){
+                $(".carta").on("click", function(){
+                    abrirCarta($(this));
+                });
+            }
+
+            function abrirCarta(carta){
+                let index = carta.data("index");
+
+                if(!carta.hasClass("abierta") && !carta.hasClass("encontrada")){
+                    carta.text(cartas[index]);
+                    carta.addClass("abierta");
+                    cartasAbiertas.push(carta);
+
+                    if(cartasAbiertas.length === 2){
+                        actualizarContadorMovimientos();
+                        verificarPareja();
+                    }
+                }
+            }
+
+            function verificarPareja(){
+                let [carta1, carta2] = cartasAbiertas;
+                let index1 = carta1.data("index");
+                let index2 = carta2.data("index");
+
+                if(cartas[index1] === cartas[index2]){
+                    carta1.addClass("encontrada");
+                    carta2.addClass("encontrada");
+                    parejasEncontradas++;
+                    if(parejasEncontradas === cartas.length / 2){
+                        mostrarMensaje("HAS ENCONTRADO TODAS LAS PAREJAS");
+                    }else{
+                        mostrarMensaje("PAREJA ENCONTRADA");
+                    }
+                }else{
+                    setTimeout(() => {
+                        cerrarCartas(carta1, carta2);
+                    }, 500);
+                    mostrarMensaje("NO ES UNA PAREJA");
+                }
+                cartasAbiertas = [];
+            }
+
+            function cerrarCartas(carta1, carta2){
+                carta1.text("");
+                carta2.text("");
+                carta1.removeClass("abierta");
+                carta2.removeClass("abierta");
+            }
+
+            function mostrarMensaje(mensaje){
+                $("#mensaje").text(mensaje);
+                $(".carta").off("click");
+                setTimeout(() => {
+                    asignarEventos();
+                    $("#mensaje").text("");
+                }, 1000);
+            }
+
+            function actualizarContadorMovimientos(){
+                movimientos++;
+                $("#contadorMovimientos").text(movimientos);
+            }
+
+            iniciarJuego();
+        });
+    </script>
+</body>
+</html>

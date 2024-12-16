@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Adivina el Número con Efectos jQuery</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1{
+            margin-bottom: 20px;
+        }
+
+        #suposicion{
+            width: 60px;
+            text-align: center;
+        }
+
+        button{
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #resultado{
+            margin-top: 20px;
+            font-size: 25pt;
+            font-weight: bold;
+        }
+
+        .correcto{
+            color: green;
+        }
+
+        .incorrecto{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Juego de Adivina el Número</h1>
+    <label for="suposicion">Ingresa tu suposición:</label>
+    <input type="number" id="suposicion" min="1" max="100" required>
+    <button id="enviarSuposicion">Enviar Suposición</button>
+    <button id="reiniciarJuego">Reiniciar Juego</button>
+    <p id="resultado"></p>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let numeroAdivinar;
+            let intentos;
+
+            function iniciarJuego(){
+                numeroAdivinar = generarNumeroAdivinar();
+                intentos = 0;
+                $("#resultado").text("").removeClass("correcto incorrecto");
+                $("#suposicion").val("").prop("disabled", false);
+                $("#enviarSuposicion").prop("disabled", true);
+            }
+
+            function generarNumeroAdivinar(){
+                return Math.floor(Math.random() * 100) + 1;
+            }
+
+            function verificarSuposicion(){
+                let entrada = $("#suposicion").val();
+                if(comprobarEntrada()){
+                    intentos++;
+                    let suposicion = parseInt(entrada);
+                    if(suposicion === numeroAdivinar){
+                        mostrarResultado(`Has adivinado el numero en ${intentos} intentos.`, "correcto");
+                        desactivarBotonEnviar();
+                        $("#suposicion").prop("disabled", true);
+                    }else if(suposicion < numeroAdivinar){
+                        mostrarResultado("Tu numero es mas bajo que el buscado.", "incorrecto");
+                    }else{
+                        mostrarResultado("Tu numero es mas alto que el buscado.", "incorrecto");
+                    }
+                }else{
+                    mostrarResultado("Por favor, ingresa un número valido entre 1 y 100.", "incorrecto");
+                }
+            }
+
+            function comprobarEntrada() {
+                let numero = $("#suposicion").val();
+                if(isNaN(numero) || numero<1 || numero>100){
+                    desactivarBotonEnviar();
+                    return false;
+                }else{
+                    $("#enviarSuposicion").prop("disabled", false);
+                    return true;
+                }
+            }
+
+            function mostrarResultado(mensaje, claseResultado){
+                $("#resultado").hide().text(mensaje).removeClass("correcto incorrecto").addClass(claseResultado).fadeIn(250);
+            }
+
+            function desactivarBotonEnviar(){
+                $("#enviarSuposicion").prop("disabled", true);
+            }
+
+            function reiniciarJuego(){
+                iniciarJuego();
+            }
+
+            $("#suposicion").on("blur", comprobarEntrada);
+            $("#enviarSuposicion").on("click", verificarSuposicion);
+            $("#reiniciarJuego").on("click", reiniciarJuego);
+
+            iniciarJuego();
+        });
+    </script>
+</body>
+</html>

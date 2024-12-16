@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .tarea{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .tarea.completada{
+            text-decoration: line-through;
+            background-color: #d4edda;
+        }
+
+        button{
+            margin-left: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        button.eliminar{
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        button.completar{
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        #vaciar{
+            margin-top: 10px;
+            background-color: #f5c6cb;
+            color: #721c24;
+            display: block;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Gestor de Tareas</h1>
+    <form id="formTarea">
+        <input type="text" id="inputTarea" placeholder="Escribe tu tarea">
+        <button type="submit">Agregar Tarea</button>
+    </form>
+    <ul id="listaTareas"></ul>
+    <button id="vaciar">Vaciar Todas las Tareas</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const formTarea = $("#formTarea");
+            const inputTarea = $("#inputTarea");
+            const listaTareas = $("#listaTareas");
+            const vaciarBtn = $("#vaciar");
+
+            // Función para agregar una tarea
+            formTarea.on("submit", function(event){
+                event.preventDefault();
+
+                let tareaTexto = inputTarea.val().trim();
+                if(tareaTexto){
+                    let nuevaTarea = $(`
+                        <li class="tarea">
+                            <span class="descripcion">${tareaTexto}</span>
+                            <button class="completar">Completar</button>
+                            <button class="eliminar">Eliminar</button>
+                        </li>
+                    `);
+
+                    listaTareas.append(nuevaTarea);
+                    inputTarea.val("");
+                }
+            });
+
+            // Eventos en la lista
+            listaTareas.on("click", ".completar", function(){
+                $(this).parent().toggleClass("completada");
+            });
+
+            listaTareas.on("click", ".eliminar", function(){
+                $(this).parent().remove();
+            });
+
+            // Vaciar todas las tareas
+            vaciarBtn.on("click", function(){
+                listaTareas.empty();
+            });
+        });
+    </script>
+</body>
+</html>
