@@ -3,6 +3,7 @@
 session_start();
 
 include 'utilidad.php';
+include 'seguridad.php';
 $con= conexionDB();
 
 $id;
@@ -22,9 +23,13 @@ if(isset($_POST["confirmar"])){
         header("Location: index.php");
         exit();
     }else{
-        borradoLogico($con, $id);
+        $aux=borradoLogico($con, $id);
+        if($aux!==false){
+            escribirLog($_SESSION["email"], $id);
+        }
         cierreDB($con);
         header("Location: index.php");
+        exit();
     }
 }
 

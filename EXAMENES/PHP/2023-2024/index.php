@@ -2,19 +2,26 @@
 <?php
 session_start();
 include 'utilidad.php';
+include 'seguridad.php';
 $con= conexionDB();
 
 $email=$_SESSION["email"];
 
-$notas= obtenerNotasPorUsuario($con, $email, 0);
-if($notas!==false){
-    $notasEstructura=[];
-    while($nota = mysqli_fetch_assoc($notas)){
-        $notasEstructura[]=$nota;
+if(isset($_SESSION["email"])){
+    $notas= obtenerNotasPorUsuario($con, $email, 0);
+    if($notas!==false){
+        $notasEstructura=[];
+        while($nota = mysqli_fetch_assoc($notas)){
+            $notasEstructura[]=$nota;
+        }
+        usort($notasEstructura, function ($a, $b) {
+            return $b['fecha'] <=> $a['fecha'];
+        });
     }
-    usort($notasEstructura, function ($a, $b) {
-        return $b['fecha'] <=> $a['fecha'];
-    });
+}else{
+    cierreDB($con);
+    header("Location: login.php");
+    exit();
 }
 ?>
 <html>
