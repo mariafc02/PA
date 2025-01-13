@@ -36,10 +36,10 @@ function generarUnidades(DEPTOS, SEDES, NUMUBICACIONES){
 
 function validarFormulario(){
     let valido=true;
-    let prioridadValido = validarLista(document.getElementById("priotity"));
+    let prioridadValido = validarLista(document.getElementById("priority"));
     let ubicacionValido = validarLista(document.getElementById("loc"));
     let tipoIncidenciaValido = validarTipoIncidencia();
-    let caracteresValido = limitarCaracteres(document.getElementById("descripcion"), LIMITE_DE_CARACTERES);
+    let caracteresValido = limitarCaracteres(document.getElementById("description"), LIMITE_DE_CARACTERES);
     let fechaValido = comprobarFormatoFecha(document.getElementById("date"));
 
     if(prioridadValido===false || ubicacionValido===false || tipoIncidenciaValido===false || caracteresValido===false || fechaValido===false){
@@ -98,7 +98,7 @@ function mostrarErrores(campo, error){
 }
 
 function limitarCaracteres(campo, limite){
-    eliminarErrores(campo);
+    eliminarErrores(campo.name);
     if(campo.value.length<=0 || campo.value.length>limite){
         mostrarErrores(campo.name, ERROR_SUPERADO_LIMITE_CARACTERES.replace("X", limite)+", has escrito "+campo.value.length+" caracteres.");
         return false;
@@ -108,7 +108,7 @@ function limitarCaracteres(campo, limite){
 }
 
 function comprobarFormatoFecha(campo){
-    let spanError = eliminarErrores(campo);
+    eliminarErrores(campo.name);
     if(/^\d{2}\/\d{2}\/\d{4}$/.test(campo.value)===false){
         mostrarErrores(campo.name, ERROR_FORMATO_FECHA);
         return false;
