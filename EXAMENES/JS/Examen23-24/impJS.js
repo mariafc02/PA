@@ -85,7 +85,7 @@ function validarLista(campo){
 
 function eliminarErrores(campo){
     let spanError = document.getElementById(campo+"Error");
-    if(spanError.firstChild){
+    if(spanError.firstChild!==null){
         spanError.removeChild(spanError.firstChild);
     }
 
@@ -98,7 +98,7 @@ function mostrarErrores(campo, error){
 }
 
 function limitarCaracteres(campo, limite){
-    let spanError = eliminarErrores(campo);
+    eliminarErrores(campo);
     if(campo.value.length<=0 || campo.value.length>limite){
         mostrarErrores(campo.name, ERROR_SUPERADO_LIMITE_CARACTERES.replace("X", limite)+", has escrito "+campo.value.length+" caracteres.");
         return false;
