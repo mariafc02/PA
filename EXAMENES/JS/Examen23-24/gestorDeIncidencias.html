@@ -13,7 +13,7 @@
         <form id="formulario" action="#" method="post" onsubmit="return validarFormulario()">
             <fieldset>
                 <legend>Datos de la incidencia</legend>
-
+                
                 <label for="priority">Prioridad:</label>
                 <select name="priority" id="priority" onchange="validarLista(this)">
                     <option value="invalid" selected>Seleccione un valor</option>
@@ -24,8 +24,8 @@
                 <span id="priorityError" class="error"></span>
                 <br/>
                 <br/>
-
-
+                
+                
                 <label for="incidentType">Tipo de incidencia:</label>
                 <span id="incidentTypeError" class="error"></span>
                 <br>
@@ -36,7 +36,7 @@
                 <input type="radio" id="development" name="incidentType" value="development" onclick="eliminarErrores('incidentType')">
                 <label for="development">Desarrollo</label><br/>                
                 <br/>
-
+                
                 <label for="loc">Ubicación:</label>
                 <select name="loc" id="loc" onchange="validarLista(this)">
                     <option value="invalid" selected>Seleccione una ubicación</option>
@@ -44,14 +44,14 @@
                 <span id="locError" class="error"></span>
                 <br/>
                 <br/>
-
+                
                 <label for="description">Descripción:</label>
                 <br/>
                 <textarea id="description" name="description" rows="5" cols="60" onchange="limitarCaracteres(this,LIMITE_DE_CARACTERES)"></textarea>
                 <span id="descriptionError" class="error"></span>
                 <div><span id="contador"></span> caracteres restantes</div>
                 <br/>
-
+                
                 <label for="date">Fecha:</label>
                 <br/>
                 <input type="text" id="date" name="date" onchange="comprobarFormatoFecha(this)"/>
@@ -70,8 +70,7 @@
                 </div>
                 <br/>
                 <br/>
-
-                <input type="submit" value="Enviar">                
+                <input type="submit" value="Enviar">
             </fieldset>
         </form>
     </body>
